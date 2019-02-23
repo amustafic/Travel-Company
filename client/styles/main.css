@@ -1,0 +1,17 @@
+#searchBar {
+  margin: 15px 10px;
+}
+
+.tableWrapper {
+  max-height: 400px;
+  overflow: auto;
+}
+
+body {background-color: powderblue;}
+h1   {color: mediumblue; }
+h2   {color: mediumblue}
+p    {color: darkslategray;}
+td   {background-color:lightgray;}
+
+.btn-primary { margin-right: 5px;}
+.btn-info {margin-right: 10px; }
