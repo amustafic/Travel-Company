@@ -71,3 +71,7 @@ body {
 .nav-link{
 	color: black;
 }
+
+.center {
+	text-align:center;
+}
