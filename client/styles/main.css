@@ -31,10 +31,6 @@ body {
 	margin: 0px;
 }
 
-#jumbo {
-	background-color: #FFFFF;
-}
-
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
@@ -43,10 +39,29 @@ body {
   color:white;
 }
 
+.btnJumbo {
+	background-color: white;
+	color: black;
+	border-color: black;
+}
+
+.btnSubmit {
+	background-color: #725ac1;
+	color: white;
+	border-color: black;
+}
+
 /* Supporting marketing content */
 
 .marketing p + h4 {
   margin-top: 1.5rem;
+}
+
+/*The Underline For Marketing Titles*/
+.titleMarketing {
+	padding-bottom: .5rem;
+	color: #777;
+	border-bottom: .05rem solid #e5e5e5;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -68,10 +83,12 @@ body {
   }
 }
 
+/*Setting Nav Bar Text*/
 .nav-link{
 	color: black;
 }
 
+/*Basic Center Text Class*/
 .center {
 	text-align:center;
 }
