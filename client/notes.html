@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+	<link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+    <div class="container">
+	  <!--Nav Bar-->
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
+        </nav>
+        <img id="logo" src="images/Logo.jpg"/>
+      </div><!--End Nav Bar-->
+
+    <section class="mb-4">
+	<!--Jumbotron-->
+	<div class="jumbotron">
+		<h2 class="h1-responsive font-weight-bold text-center my-1">Notes</h2>
+		
+	</div><!--End Jumbotron-->
+	
+	<!--Form-->
+    <div class="row">
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                <!--Row-->
+				<div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form mb-1">
+							<label for="firstName" class="">First Name</label>
+                            <input type="text" name="firstName" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="md-form mb-1">
+                            <label for="lastName" class="">Last Name</label>
+							<input type="text" name="lastName" class="form-control">
+                        </div>
+                    </div>
+                </div><!--End Row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form mb-1">
+                                <label for="tesxnote" class="">Note</label>
+                                <textarea type="text" name="textnote" rows="6" cols="112"> 
+                                </textarea>                       
+
+                        </div>
+                     </div>
+                </div>
+
+                
+            </form>
+			
+            <div class="text-center text-md-left">
+                <a class="btn btn-primary btnSubmit" onclick="">Send</a>
+            </div>
+            <div class="status"></div>
+        </div><!--End Form-->
+    </section>
+    
+    <tr ng-repeat="note in notes | filter: query" ng-click="showDetails($index)">
+      <td>{{note.textnote}}</td>
+      <td>{{note.firstname}}</td>
+      <td>{{note.lastname}}</td>
+      <td> <button ng-click="deleteListing(listing._id)">Delete</button><span style="color: red;"></span></td>
+    </tr>
+		
+
+    </div>
+      <footer class="footer">
+        <p>&copy; Bochitto Travel</p>
+      </footer>
+
+    </div> <!-- /container -->
+  </body>
+</html>
