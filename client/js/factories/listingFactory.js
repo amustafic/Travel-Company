@@ -3,7 +3,7 @@ angular.module('listings').factory('Listings', function($http) {
 
 
 	create: function(listing) {
-	  return $http.post('https://localhost:8080/api/listings', listing);
+	  return $http.post('https://localhost:8080/api/contact', listing);
     },
 
 
