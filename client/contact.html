@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+	<link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body ng-app "directoryApp">
+    <div class="container">
+	  <!--Nav Bar-->
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
+        </nav>
+        <img id="logo" src="images/Logo.jpg"/>
+      </div><!--End Nav Bar-->
+
+    <section class="mb-4">
+	<!--Jumbotron-->
+	<div class="jumbotron">
+		<h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+		<p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+        a matter of hours to help you.</p>
+	</div><!--End Jumbotron-->
+
+	<!--Form-->
+    <div class="row" ng-controller="ListingsController">
+        <div class="col-md-9 mb-md-0 mb-5">
+          <form novalidate class="simple-form">
+                First Name: <input type="text" ng-model="newListing.firstName" /><br />
+                Last Name: <input type="text" ng-model="newListing.lastName" /><br />
+                Email: <input type="text" ng-model="newListing.email" /><br />
+                Phone: <input type="text" ng-model="newListing.phone" /><br />
+                Travel Dates: <input type="text" ng-model="newListing.travelDates" /><br />
+                Budget: <input type="text" ng-model="newListing.budget" /><br />
+                <button class="btn btn-primary" ng-click="addListing()">Send</button>
+</form>
+            </div>
+
+
+        </div><!--End Form-->
+		</section>
+
+
+
+      <footer class="footer">
+        <p>&copy; Bochitto Travel</p>
+      </footer>
+
+    </div> <!-- /container -->
+  </body>
+</html>
