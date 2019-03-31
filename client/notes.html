@@ -63,25 +63,25 @@
                 <th class='text-center'>Delete</th>
               </tr>    
               <tr ng-repeat="listing in listings | filter: query" ng-click="showDetails($index)">
-                <td>{{listing.code}}</td>
-                <td>{{listing.name}}</td>
+                <td>{{listing.firstname}}</td>
+                <td>{{listing.lastname}}</td>
                 <td> <button ng-click="deleteListing(listing._id)">Delete</button><span style="color: red;"></span></td>
               </tr>
             </table>
           </div>
           <form novalidate class="simple-form">
             <h2>Add New Note</h2>
-            First name: <input type="text"  class="form-control text-center form-control-lg" ng-model="newListing.code" /><br />
-            Last name: <input type="text" class="form-control text-center form-control-lg" ng-model="newListing.name" /><br />
-            Note: <textarea type="text"  class="form-control text-center form-control-lg" ng-model="newListing.address" /></textarea><br />
+            First name: <input type="text"  class="form-control text-center form-control-lg" ng-model="newListing.firstname" /><br />
+            Last name: <input type="text" class="form-control text-center form-control-lg" ng-model="newListing.lastname" /><br />
+            Note: <textarea type="text"  class="form-control text-center form-control-lg" ng-model="newListing.textnote" /></textarea><br />
             <button class="btn btn-primary btn-lg btn-block" ng-click="addListing()">Add Listing</button>
           </form>
         </div>
         <div class="col-md-6">
           <div class="jumbotron text-center">
             <h2>Note</h2>
-            <h4>{{detailedInfo.name}}</h4>
-            <p>{{detailedInfo.address}}</p>
+            <h4>Name: {{detailedInfo.firstname}}</h4>
+            <p>{{detailedInfo.textnote}}</p>
           </div>
         </div>
       </div>
