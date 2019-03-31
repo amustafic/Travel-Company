@@ -8,13 +8,28 @@
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Clicker Script' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Covered By Your Grace' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
 	<link rel="stylesheet" href="styles/style.css">
   <style>
-     .jumbotron{
-       font-family: 'Overpass';
+     body{
+       background-image: url("styles/tropical.jpg");
+       background-size: cover;
+       background-position: center center;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+     }
+      .container{
+        margin-top: 100px;
+        background-color: white;
+        border-radius: 18px;
+        opacity: .95;
+
+      }
+      .header{
+        background-color: white;
+      }
+      h1{
+        text-align: center;
       }
   </style>
   </head>
@@ -38,92 +53,100 @@
             </li>
           </ul>
         </nav>
-        <img id="logo" src="images/Logo.jpg"/>
+        <img id="logo" src="images/logo1.jpg"/>
       </div><!--End Nav Bar-->
 
     <section class="mb-4">
-	<!--Jumbotron-->
-	<div class="jumbotron">
-		<h1 class="h1-responsive font-weight-bold text-center my-4">Contact us</h1>
-		<h5 class="text-center w-responsive mx-auto mb-5">Our team will come back to you within
-        a matter of hours to help you.</h5>
-	</div><!--End Jumbotron-->
 
 	<!--Form-->
+  <div class = "form">
+    <h1> <b>Contact Form</b> </h1>
     <div class="row">
-        <div class="col-md-9 mb-md-0 mb-5">
+        <div class="col-md-12 mb-md-0 mb-5">
             <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-                <!--Row-->
-				<div class="row">
-                    <div class="col-md-6">
-                        <div class="md-form mb-1">
-							              <label for="firstName" class="">First Name</label>
-                            <input type="text" name="firstName" class="form-control" placeholder="First Name">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="md-form mb-1">
-                            <label for="lastName" class="">Last Name</label>
-							              <input type="text" name="lastName" class="form-control" placeholder="Last Name">
-                        </div>
-                    </div>
-        </div><!--End Row-->
-
-				<!--Row-->
-				<div class="row">
-                    <div class="col-md-6">
-                        <div class="md-form mb-1">
-							              <label for="email" class="">Email</label>
-                            <input type="text" name="email" class="form-control" placeholder="example@email.com">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="md-form mb-1">
-          							         <label for="phone" class="">Phone</label>
-                                 <input type="text" name="phone" class="form-control" placeholder="(xxx)-xxx-xxxx">
-                        </div>
-                    </div>
-        </div><!--End Row-->
-
-				<!--Row-->
-        <div class="row">
-                    <div class="col-md-6">
-                        <div class="md-form mb-1">
-							              <label for="Departure" class="">Departure</label>
-                            <input type="text" name="Departure" class="form-control" placeholder="MM/DD/YYYY">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="md-form mb-1">
-                          <label for="Arrival" class="">Arrival</label>
-                          <input type="text" name="Arrival" class="form-control" placeholder="MM/DD/YYYY">
+                <!--Names-->
+				         <div class="row">
+                      <div class="col-md-6">
+                          <div class="md-form mb-1">
+							                     <label for="firstName" class="">First Name</label>
+                                   <input type="text" name="firstName" class="form-control" placeholder="First Name">
+                          </div>
                       </div>
-                    </div>
-        </div><!--End Row-->
+                      <div class="col-md-6">
+                          <div class="md-form mb-1">
+                              <label for="lastName" class="">Last Name</label>
+  							              <input type="text" name="lastName" class="form-control" placeholder="Last Name">
+                          </div>
+                      </div>
+                  </div>
+                  <!--End Names-->
 
-				<!--Row-->
-        <div class="row">
-                    <div class="col-md-6">
-                        <div class="md-form mb-1">
-							              <label for="minBudget" class="">Minimum Budget</label>
-                            <input type="text" name="minBudget" class="form-control" placeholder="$">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="md-form mb-1">
-                            <label for="maxBudget" class="">Maximum Budget</label>
-							              <input type="text" name="maxBudget" class="form-control" placeholder="$">
-                        </div>
-                    </div>
-        </div><!--End Row-->
-        <br>
+          				<!--Email & Phone-->
+          				<div class="row">
+                              <div class="col-md-6">
+                                  <div class="md-form mb-1">
+          							              <label for="email" class="">Email</label>
+                                      <input type="text" name="email" class="form-control" placeholder="example@email.com">
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="md-form mb-1">
+                    							         <label for="phone" class="">Phone</label>
+                                           <input type="text" name="phone" class="form-control" placeholder="(xxx)-xxx-xxxx">
+                                  </div>
+                              </div>
+                  </div><!--End Email & Phone-->
 
+          				<!--Row Dates-->
+                  <div class="row">
+                              <div class="col-md-6">
+                                  <div class="md-form mb-1">
+          							              <label for="Departure" class="">Departure</label>
+                                      <input type="text" name="Departure" class="form-control" placeholder="MM/DD/YYYY">
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="md-form mb-1">
+                                    <label for="Arrival" class="">Arrival</label>
+                                    <input type="text" name="Arrival" class="form-control" placeholder="MM/DD/YYYY">
+                                </div>
+                              </div>
+                  </div>
+                  <!--End Dates-->
 
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary btnSubmit" onclick="">Send</a>
-            </div>
-            <div class="status"></div>
+          				<!--Row Budget-->
+                  <div class="row">
+                              <div class="col-md-6">
+                                  <div class="md-form mb-1">
+          							              <label for="minBudget" class="">Minimum Budget</label>
+                                      <input type="text" name="minBudget" class="form-control" placeholder="$">
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="md-form mb-1">
+                                      <label for="maxBudget" class="">Maximum Budget</label>
+          							              <input type="text" name="maxBudget" class="form-control" placeholder="$">
+                                  </div>
+                              </div>
+                  </div><!--End Budget-->
+
+                  <!--Commnets/Concerns-->
+                  <div class="row">
+                              <div class="col-md-12">
+                                    <label for="Comments">Comments</label>
+                                    <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns"></textarea>
+                              </div>
+                  </div><!--End Comments/Concerns-->
+
+                  <br>
+                  <div class="text-center text-md">
+                      <a class="btn btn-primary btnSubmit" onclick="">Send</a>
+                  </div>
+                  <div class="status"></div>
+          </form>
         </div><!--End Form-->
+        </div>
+        </div>
 		</section>
 
 
