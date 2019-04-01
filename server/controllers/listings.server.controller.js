@@ -1,11 +1,18 @@
+//Implement Queries
+//copy bootcamp 2 files and move them over (?) 
+
+
 /* Dependencies */
 var mongoose = require('mongoose'), 
-    Listing = require('../models/listings.server.model.js');
+    Listing = require('../models/listings.server.model.js'),
+    config = require('../config/config.js');
 
+mongoose.connect(config.db.uri);
 /*
   In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
   On an error you should send a 404 status code, as well as the error message. 
   On success (aka no error), you should send the listing(s) as JSON in the response.
+
   HINT: if you are struggling with implementing these functions, refer back to this tutorial 
   from assignment 3 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
  */
@@ -32,66 +39,56 @@ exports.create = function(req, res) {
 exports.read = function(req, res) {
   /* send back the listing as json from the request */
   res.json(req.listing);
-};
-
-/* Show the current listing */
-exports.read = function(req, res) {
-  /* send back the listing as json from the request */
-  res.json(req.listing);
-};
+ };
 
 /* Update a listing */
 exports.update = function(req, res) {
-    var listing = req.listing;
-    
-/* Replace the article's properties with the new properties found in req.body */
-  if(req.body) {
-      listing.code = req.body.code;
-      listing.name = req.body.name;
-      listing.address = req.body.address;
-  }
-
-  /* Then save the listing */
-  listing.save(function(err) {
+  var listing = req.listing;
+  Listing.findOneAndUpdate(listing.code, req.body, {new: true}, function(err, answer){  
     if(err) {
       console.log(err);
       res.status(400).send(err);
     } else {
-      res.json(listing);
+      res.status(200).json(answer);
     }
-  });
+    });
+  /** TODO **/
+  /* Replace the article's properties with the new properties found in req.body */
+  /* Save the article */
 };
 
 /* Delete a listing */
 exports.delete = function(req, res) {
-    var listing = req.listing;
-
-    /* Remove the article */
-    listing.remove(function(error) {
-        if (error){
-          console.log(err);
-          res.status(400).send(err);
-        } else {
-          res.json(listing);
-        }
-    });
+  var listing = req.listing;
+  Listing.findByIdAndRemove(req.params.listingId, function(err, answer){
+    if(err) {
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      res.status(200).send("OK");
+      console.log(res);
+    }
+  });
+  /* Remove the article */
 };
 
-/* Retreive all the director dy listings, sorted alphabetically by listing code */
+/* Retreive all the directory listings, sorted alphabetically by listing code */
 exports.list = function(req, res) {
-    Listing.find({}).sort('code').exec(function(err, listings) {
-        if(err) {
-            res.status(400).send(err);
-        }
-        else {
-            res.status(200).json(listings);    
-        }
-    });
+  Listing.find({}, function(err, answer) {
+    if(err) {
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      res.status(200).json(answer);
+    }
+    console.log(res);
+  }).sort({code: 'asc'});
 };
 
 /* 
   Middleware: find a listing by its ID, then pass it to the next request handler. 
- Find the listing using a mongoose query, 
+
+  Find the listing using a mongoose query, 
         bind it to the request object as the property 'listing', 
         then finally call next
  */
