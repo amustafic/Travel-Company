@@ -8,7 +8,6 @@
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
 	<link rel="stylesheet" href="styles/style.css">
-  <link href='https://fonts.googleapis.com/css?family=Covered By Your Grace' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
   <style>
     .col-md-9{
@@ -20,11 +19,40 @@
       .col-md-6{
         margin: auto;
        }
+       .header{
+         background-color: white;
+       }
+       .mb-4{
+         background-color: white;
+         margin-left: 350px;
+         margin-right: 350px;
+         border-radius: 18px;
+         opacity: .97;
+         border-style: : groove;
+       }
+       body{
+         background-image: url("images/login.jpg");
+         background-size: cover;
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+       }
+       .container{
+         margin-top: 150px;
+         background-color: white;
+         border-radius: 18px;
+         background: transparent;
+       }
+       img{
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+       }
   </style>
   </head>
   <body>
     <div class="container">
-	<!--Nav Bar-->
+	<!--Nav Bar
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills float-right">
@@ -42,46 +70,52 @@
             </li>
           </ul>
         </nav>
-        <img id="logo" src="images/Logo.jpg"/>
-      </div><!--End Nav Bar-->
+        <img id="logo" src="images/logo1.jpg"/>
+      </div> End Nav Bar-->
 
       <section class="mb-4">
 
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Login</h2>
+
+    <br>
+    <img src="images/Logo.jpg" alt="Paris">
+    <br>
 
     <div class="row">
-        <div class="col-md-9 mb-md-0 mb-5">
+        <div class="col-md-12 mb-md-0 mb-5">
             <form id="contact-form" name="contact-form" action="mail.php" method="POST">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="md-form mb-0">
-                            <input type="text" name="username" class="form-control">
                             <label for="username" class="">Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Username">
                         </div>
                     </div>
                 </div>
                 <div class = "row">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                       <div class="md-form mb-0">
-                          <input type="text" name="password" class="form-control">
                           <label for="Password" class="">Password</label>
+                          <input type="text" name="password" class="form-control" placeholder="Password">
                       </div>
                   </div>
                 </div>
             </form>
 
+            <br>
             <div class="text-center text-md-center">
                 <a class="btn btn-primary btnSubmit" onclick="">Send</a>
             </div>
             <div class="status"></div>
+            <br>
         </div>
 		</section>
 
 
     <div>
+      <!--
       <footer class="footer">
         <p>&copy; Bochitto Travel</p>
       </footer>
-    </div> <!-- /container -->
+    </div>  /container -->
   </body>
 </html>
