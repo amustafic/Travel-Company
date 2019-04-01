@@ -4,40 +4,23 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var listingSchema = new Schema({
-  firstname: {
+  name: {
     type: String, 
     required: true
   }, 
-  lastname: {
+  code: {
     type: String, 
     required: true, 
     unique: true
   }, 
-  textnote: {
-    type: String, 
-    required: true
-  }, 
+  address: String, 
+  coordinates: {
+    latitude: Number, 
+    longitude: Number
+  },
   created_at: Date,
   updated_at: Date
 });
-
-/*
-var listingSchema = new Schema({
-  fristname: {
-    type: String, 
-    required: true
-  }, 
-  lastname: {
-    type: String, 
-    required: true
-  }, 
-  textbox: {
-    type: String, 
-    required: true
-  }, 
-  created_at: Date,
-  updated_at: Date
-});*/
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 listingSchema.pre('save', function(next) {
