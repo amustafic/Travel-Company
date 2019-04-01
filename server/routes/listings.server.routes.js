@@ -13,6 +13,13 @@ router.route('/listings')
 
 
 /*
+<<<<<<< HEAD
+  The ':' specifies a URL parameter. 
+ */
+router.route('/:listingId')
+  .get(listings.read)
+  .delete(listings.delete);
+=======
  The ':' specifies a URL parameter.
 */
 router.route('/listings/:listingId')
@@ -20,6 +27,7 @@ router.route('/listings/:listingId')
  .put(listings.update)
  .delete(listings.delete);
 
+>>>>>>> 43e4ea8855695c15842ece57f69c1d497fcb116a
 
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle 

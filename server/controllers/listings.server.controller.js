@@ -42,6 +42,9 @@ exports.read = function(req, res) {
  };
 
 /* Update a listing */
+<<<<<<< HEAD
+
+=======
 exports.update = function(req, res) {
   var listing = req.listing;
   Listing.findOneAndUpdate(listing.code, req.body, {new: true}, function(err, answer){  
@@ -56,6 +59,7 @@ exports.update = function(req, res) {
   /* Replace the article's properties with the new properties found in req.body */
   /* Save the article */
 };
+>>>>>>> 43e4ea8855695c15842ece57f69c1d497fcb116a
 
 /* Delete a listing */
 exports.delete = function(req, res) {
