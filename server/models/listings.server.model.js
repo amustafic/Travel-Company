@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var listingSchema = new Schema({
+<<<<<<< HEAD
   firstname: {
     type: String 
   }, 
@@ -33,6 +34,21 @@ var listingSchema = new Schema({
   },
    comments: {
     type: String
+=======
+  name: {
+    type: String, 
+    required: true
+  }, 
+  code: {
+    type: String, 
+    required: true, 
+    unique: true
+  }, 
+  address: String, 
+  coordinates: {
+    latitude: Number, 
+    longitude: Number
+>>>>>>> 43e4ea8855695c15842ece57f69c1d497fcb116a
   },
   created_at: Date,
   updated_at: Date
