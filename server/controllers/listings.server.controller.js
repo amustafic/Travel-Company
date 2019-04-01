@@ -41,26 +41,7 @@ exports.read = function(req, res) {
 };
 
 /* Update a listing */
-exports.update = function(req, res) {
-    var listing = req.listing;
-    
-/* Replace the article's properties with the new properties found in req.body */
-  if(req.body) {
-      listing.code = req.body.code;
-      listing.name = req.body.name;
-      listing.address = req.body.address;
-  }
 
-  /* Then save the listing */
-  listing.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.json(listing);
-    }
-  });
-};
 
 /* Delete a listing */
 exports.delete = function(req, res) {

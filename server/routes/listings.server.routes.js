@@ -17,7 +17,6 @@ router.route('/')
  */
 router.route('/:listingId')
   .get(listings.read)
-  .put(listings.update)
   .delete(listings.delete);
 
 /*

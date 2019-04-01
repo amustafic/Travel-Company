@@ -5,18 +5,26 @@ var mongoose = require('mongoose'),
 /* Create your schema */
 var listingSchema = new Schema({
   firstname: {
-    type: String, 
-    required: true
+    type: String 
   }, 
   lastname: {
-    type: String, 
-    required: true, 
-    unique: true
+    type: String 
   }, 
   textnote: {
-    type: String, 
-    required: true
+    type: String
   }, 
+  email: {
+    type: String
+  },
+   traveldates: {
+    type: String
+  },
+  phone: {
+    type: Number
+  },
+  budget: {
+    type: Number
+  },
   created_at: Date,
   updated_at: Date
 });
