@@ -9,41 +9,24 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 
     $scope.detailedInfo = undefined;
 
+  
     $scope.addListing = function() {
-      Listings.create($scope.new_entry).then(function ()
-      {
-        window.location.href = "./index.html";
-      }, function (error){
-        console.log(error);
-      });
-    
-
-	  /*Save the article using the Listings factory. If the object is successfully 
-	  saved redirect back to the list page. Otherwise, display the error
-	 */
+    $scope.listings.push($scope.newListing);
+    Listings.create($scope.newListing);
+    $scope.newListing = {};
     };
 
-    $scope.deleteListing = function(id) {
-      Listings.delete(id).then(function ()
-    {
-      window.location.href = "./index.html";
-    }, function (error){
-      console.log(error);
+    $scope.deleteListing = function(index) {
+      var indexOf = $scope.listings.indexOf(index);
+      Listings.delete(index).then(function(response) {
+    }, function(error) {
+      console.log('Could not delete:', error);
     });
-    }
-
+      $scope.listings.splice(indexOf,1);
+    };
+    
     $scope.showDetails = function(index) {
-      //$scope.detailedInfo = $scope.listings[index];
-       if(index.address == null || index.coordinates == null) {
-        $scope.address = "No details to show.";
-        $scope.latitude = "";
-        $scope.longitude = "";
-      } else {
-        $scope.address = "Address: " + index.address + "\n";
-        $scope.latitude = "Latitude: " + index.coordinates.latitude + "\n";
-        $scope.longitude = "Longitude: " + index.coordinates.longitude + "\n";
-      }
-
+      $scope.detailedInfo = $scope.listings[index];
     };
   }
 ]);
