@@ -62,31 +62,21 @@
 	<!--Form-->
   <div class = "form">
     <h1> <b>Contact Form</b> </h1>
-
     <div class="row" ng-controller="ListingsController">
         <div class="col-md-12 mb-md-0 mb-5">
             <form novalidate class="simple-form">
-
-    <div class="row">
-        <div class="col-md-12 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
                 <!--Names-->
 				         <div class="row">
                       <div class="col-md-6">
                           <div class="md-form mb-1">
 							                     <label for="firstName" class="">First Name</label>
-
                                    <input type="text" name="firstName" class="form-control" placeholder="First Name" ng-model="newListing.firstname">
-
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="md-form mb-1">
                               <label for="lastName" class="">Last Name</label>
-
   							              <input type="text" name="lastName" class="form-control" placeholder="Last Name" ng-model="newListing.lastname">
-
                           </div>
                       </div>
                   </div>
@@ -97,17 +87,13 @@
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
           							              <label for="email" class="">Email</label>
-
                                       <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="newListing.email">
-
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
                     							         <label for="phone" class="">Phone</label>
-
                                            <input type="text" name="phone" class="form-control" placeholder="(xxx)-xxx-xxxx" ng-model="newListing.phone">
-
                                   </div>
                               </div>
                   </div><!--End Email & Phone-->
@@ -117,17 +103,13 @@
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
           							              <label for="Departure" class="">Departure</label>
-
                                       <input type="text" name="Departure" class="form-control" placeholder="MM/DD/YYYY" ng-model="newListing.departure">
-
                                   </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="md-form mb-1">
                                     <label for="Arrival" class="">Arrival</label>
-
                                     <input type="text" name="Arrival" class="form-control" placeholder="MM/DD/YYYY" ng-model="newListing.arrival">
-
                                 </div>
                               </div>
                   </div>
@@ -138,17 +120,13 @@
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
           							              <label for="minBudget" class="">Minimum Budget</label>
-
                                       <input type="text" name="minBudget" class="form-control" placeholder="$" ng-model="newListing.minbudget">
-
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
                                       <label for="maxBudget" class="">Maximum Budget</label>
-
           							              <input type="text" name="maxBudget" class="form-control" placeholder="$" ng-model="newListing.maxbudget">
-
                                   </div>
                               </div>
                   </div><!--End Budget-->
@@ -157,18 +135,13 @@
                   <div class="row">
                               <div class="col-md-12">
                                     <label for="Comments">Comments</label>
-
                                     <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="newListing.comments"></textarea>
-
                               </div>
                   </div><!--End Comments/Concerns-->
 
                   <br>
                   <div class="text-center text-md">
-
                     <button class="btn btn-primary btn-lg btn-block" ng-click="addListing()">Add Listing</button>                  </div>
-                  </div>
-
                   <div class="status"></div>
           </form>
         </div><!--End Form-->
