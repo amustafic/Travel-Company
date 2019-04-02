@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-   <!-- 
- 
+   <!--
+
     <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
   <link rel="stylesheet" href="styles/style.css"> -->
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -20,6 +20,17 @@
   <style>
      .jumbotron{
        font-family: 'Overpass';
+      }
+      body{
+        background-image: url("styles/about.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: 'Overpass';
+      }
+      .tableWrapper{
+        background-color: #C7B6DC;
       }
   </style>
   </head>
@@ -43,11 +54,11 @@
               </li>
             </ul>
           </nav>
-          <img id="logo" src="C:\Ado\UF\Semester 6\SWEng\CEN3031-Project-TravelSite\MyWork"/>
+          <img id="logo" src="images/Logo.jpg"/>
         </div><!--End Nav Bar-->
-        
+
       <div class="row">
-        <h1 class="text-center">Notes</h1>
+        <h1 class="text-center"> Notes</h1>
       </div>
       <div class="row" ng-controller="ListingsController">
         <div class="col-md-6">
@@ -61,7 +72,7 @@
                 <th scope='col' class='text-center'>First name</th>
                 <th scope='col' class='text-center'>Last name</th>
                 <th class='text-center'>Delete</th>
-              </tr>    
+              </tr>
               <tr ng-repeat="listing in listings | filter: query" ng-click="showDetails($index)">
                 <td>{{listing.firstname}}</td>
                 <td>{{listing.lastname}}</td>
@@ -71,9 +82,9 @@
           </div>
           <form novalidate class="simple-form">
             <h2>Add New Note</h2>
-            First name: <input type="text"  class="form-control text-center form-control-lg" ng-model="newListing.firstname" /><br />
-            Last name: <input type="text" class="form-control text-center form-control-lg" ng-model="newListing.lastname" /><br />
-           Notes: <textarea type="text"  class="form-control text-center form-control-lg" ng-model="newListing.textnote" /></textarea><br />
+            <b>First name:</b> <input type="text"  class="form-control text-center form-control-lg" ng-model="newListing.firstname" /><br />
+            <b>Last name:</b> <input type="text" class="form-control text-center form-control-lg" ng-model="newListing.lastname" /><br />
+           <b>Notes:</b> <textarea type="text"  class="form-control text-center form-control-lg" ng-model="newListing.textnote" /></textarea><br />
 
             <button class="btn btn-primary btn-lg btn-block" ng-click="addListing()">Add Listing</button>
           </form>
@@ -87,6 +98,6 @@
         </div>
       </div>
     </div>
-    
+
   </body>
 </html>
