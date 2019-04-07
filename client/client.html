@@ -7,7 +7,26 @@
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Clicker Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
 	<link rel="stylesheet" href="styles/main.css">
+  <style>
+     .jumbotron{
+       font-family: 'Overpass';
+      }
+      body{
+        background-image: url("styles/beach.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: 'Overpass';
+      }
+      .tableWrapper{
+        background-color: #C7B6DC;
+      }
+  </style>
+
   </head>
   <body>
     <div class="container">
@@ -16,27 +35,27 @@
         <nav>
           <ul class="nav nav-pills float-right">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.html"><b>Home</b> <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="about.html"><b>About</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="contact.html"><b>Contact</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html">Sign Out</a>
+              <a class="nav-link" href="login.html"><b>Sign Out</b></a>
             </li>
 
           </ul>
         </nav>
-        <img id="logo" src="images/logo1.jpg"/>
+        <img id="logo" src="images/Logo.jpg"/>
       </div><!--End Nav Bar-->
 
     <section class="mb-4">
 	<div class="container">
       <div class="row">
-        <h1>Package List</h1>
+        <h1><b>Package List</b></h1>
       </div>
       <div class="row" ng-controller="ListingsController">
         <div class="col-md-6">
@@ -45,9 +64,9 @@
               <tr>
                 <th>Package</th>
                 <th>Cost</th>
-				<th>Description</th>
+				        <th>Description</th>
                 <th>Link</th>
-				<th></th>
+				        <th></th>
               </tr>
               <!--
 
