@@ -23,7 +23,6 @@
         background-color: white;
         border-radius: 18px;
         opacity: .95;
-
       }
       .header{
         background-color: white;
@@ -31,7 +30,6 @@
       h1{
         text-align: center;
       }
-
   </style>
   </head>
   <body ng-app="directoryApp">
@@ -62,9 +60,15 @@
 	<!--Form-->
   <div class = "form">
     <h1> <b>Contact Form</b> </h1>
+
     <div class="row" ng-controller="ListingsController">
         <div class="col-md-12 mb-md-0 mb-5">
             <form novalidate class="simple-form">
+
+    <div class="row">
+        <div class="col-md-12 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
                 <!--Names-->
 				         <div class="row">
                       <div class="col-md-6">
@@ -141,7 +145,10 @@
 
                   <br>
                   <div class="text-center text-md">
-                    <button class="btn btn-primary btn-lg btn-block" ng-click="addListing()">Add Listing</button>                  </div>
+
+                    <button class="btn btn-primary btnSubmit" ng-click="addListing()">Send</button>                  </div>
+                  </div>
+
                   <div class="status"></div>
           </form>
         </div><!--End Form-->
