@@ -3,10 +3,10 @@
 
 
 module.exports = {
-  db: {
-    uri: 'mongodb://adnan:episkeys1@ds219055.mlab.com:19055/boot3', //place the URI of your mongo database here.
-  },
-  port: process.env.PORT || 8080
-};
-
-/* Now go to the JSONtoMongo.js file and include this file as a variable named 'config' with a require() */
+    db: {
+      uri: 'mongodb://adnan:episkeys1@ds219055.mlab.com:19055/boot3', //place the URI of your mongo database here.
+    },
+    port: process.env.PORT || 8080
+  };
+  
+  /* Now go to the JSONtoMongo.js file and include this file as a variable named 'config' with a require() */
