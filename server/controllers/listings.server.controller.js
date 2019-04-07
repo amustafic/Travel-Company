@@ -42,6 +42,7 @@ exports.read = function(req, res) {
 
 /* Update a listing */
 
+
 /* Delete a listing */
 exports.delete = function(req, res) {
     var listing = req.listing;
