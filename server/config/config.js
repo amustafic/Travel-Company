@@ -1,11 +1,12 @@
 //This file holds any configuration variables we may need 
-//'config.js' is typically ignored by git to protect sensitive information, such as your database's username and password
+//'config.js' is usually ignored by git to protect sensitive information, such as your database's username and password
+
 
 module.exports = {
-  db: {
-    uri: 'mongodb://bg:123456a@ds155727.mlab.com:55727/bootcamp3bgoldstein', //place the URI of your mongo database here. //123456a
-  }, 
-  port: process.env.PORT || 8080
-};
-
-//Wave42Sea$
+    db: {
+      uri: 'mongodb://adnan:episkeys1@ds219055.mlab.com:19055/boot3', //place the URI of your mongo database here.
+    },
+    port: process.env.PORT || 8080
+  };
+  
+  /* Now go to the JSONtoMongo.js file and include this file as a variable named 'config' with a require() */

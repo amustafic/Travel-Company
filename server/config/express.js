@@ -18,21 +18,21 @@ module.exports.init = function() {
 
   //body parsing middleware 
   app.use(bodyParser.json());
-  
 
   
   /**TODO
   Serve static files */
-  app.use('/', express.static('client'));
+  app.use(express.static('client'))
 
   /**TODO 
   Use the listings router for requests to the api */
-  app.use("/api", listingsRouter);
+  app.use('/api/listings', listingsRouter);
 
 
   /**TODO 
   Go to homepage for all routes not specified */ 
-  app.get('index.html');
-
+  app.all('/*', function(req, res) {
+    res.sendFile(path.resolve('client/index.html'));
+  });
   return app;
 };  
