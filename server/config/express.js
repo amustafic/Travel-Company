@@ -1,10 +1,14 @@
-var path = require('path'),  
-    express = require('express'), 
+var path = require('path'),
+    express = require('express'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    listingsRouter = require('../routes/listings.server.routes');
+    listingsRouter = require('../routes/listings.server.routes'),
+    userRouter = require('../routes/login.server.routes.js'),
+    passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    User = require('../models/passport_user');
 
 module.exports.init = function() {
   //connect to database
@@ -16,23 +20,35 @@ module.exports.init = function() {
   //enable request logging for development debugging
   app.use(morgan('dev'));
 
-  //body parsing middleware 
+  //body parsing middleware
   app.use(bodyParser.json());
 
-  
+
   /**TODO
   Serve static files */
   app.use(express.static('client'))
 
-  /**TODO 
+  app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+  /**TODO
   Use the listings router for requests to the api */
   app.use('/api/listings', listingsRouter);
 
+  app.use('/api/user', userRouter);
 
-  /**TODO 
-  Go to homepage for all routes not specified */ 
+
+  /**TODO
+  Go to homepage for all routes not specified */
   app.all('/*', function(req, res) {
     res.sendFile(path.resolve('client/index.html'));
   });
   return app;
-};  
+};
