@@ -6,6 +6,11 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     }, function(error) {
       console.log('Unable to retrieve listings:', error);
     });
+    Listings.getAll().then(function(response) {
+      $scope.contacts = response.data;
+    }, function(error) {
+      console.log('Unable to retrieve contact:', error);
+    });
 
     $scope.detailedInfo = undefined;
 
@@ -15,6 +20,11 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     Listings.create($scope.newListing);
     $scope.newListing = {};
     };
+    $scope.addContact = function() {
+      $scope.contacts.push($scope.contact);
+      Listings.contact($scope.contact);
+      $scope.contact = {};
+      };
 
     $scope.deleteListing = function(index) {
       var indexOf = $scope.listings.indexOf(index);
@@ -37,6 +47,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
           id: null
         };
 
+
     $scope.register = function() {
       //$scope.user.push($s);
       Listings.register($scope.user).then(function (response) {
@@ -50,6 +61,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       });
     };
 
+
     $scope.login = function () {
       if ($scope.user.username != "" && $scope.user.password != "") {
         Listings.login($scope.user.username).then(function (response) {
@@ -62,11 +74,15 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
         }, function (error) {
           console.log("Wrong Credentials");
         });
+
       }
     }
 
-      //Listings.login($scope.newListing);
-      //$scope.newListing = {};
+     
       }
 
+
 ]);
+
+
+  
