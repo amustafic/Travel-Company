@@ -1,14 +1,15 @@
 /* Dependencies */
-var mongoose = require('mongoose'), 
+var mongoose = require('mongoose'),
     Listing = require('../models/listings.server.model.js');
-
+    //User = require('../models/passport_user.js');
 /*
   In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
-  On an error you should send a 404 status code, as well as the error message. 
+  On an error you should send a 404 status code, as well as the error message.
   On success (aka no error), you should send the listing(s) as JSON in the response.
-  HINT: if you are struggling with implementing these functions, refer back to this tutorial 
+  HINT: if you are struggling with implementing these functions, refer back to this tutorial
   from assignment 3 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
  */
+
 
 /* Create a listing */
 exports.create = function(req, res) {
@@ -65,15 +66,15 @@ exports.list = function(req, res) {
             res.status(400).send(err);
         }
         else {
-            res.status(200).json(listings);    
+            res.status(200).json(listings);
         }
     });
 };
 
-/* 
-  Middleware: find a listing by its ID, then pass it to the next request handler. 
- Find the listing using a mongoose query, 
-        bind it to the request object as the property 'listing', 
+/*
+  Middleware: find a listing by its ID, then pass it to the next request handler.
+ Find the listing using a mongoose query,
+        bind it to the request object as the property 'listing',
         then finally call next
  */
 exports.listingByID = function(req, res, next, id) {

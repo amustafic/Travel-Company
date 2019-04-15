@@ -1,18 +1,3 @@
-#searchBar {
-  margin: 15px 10px;
-}
-
-.tableWrapper {
-  max-height: 400px;
-  overflow: auto;
-}
-
-.glyphicon-remove{
-  position: relative;
-  right: 0;
-}
-
-
 /* Space out content a bit */
 body {
   padding-top: 1.5rem;
@@ -60,6 +45,9 @@ body {
 	border-color: black;
 }
 
+.btn{
+  background-color: #725ac1;
+}
 .btnSubmit {
 	background-color: #725ac1;
 	color: white;

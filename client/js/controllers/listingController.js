@@ -1,4 +1,4 @@
-angular.module('listings').controller('ListingsController', ['$scope', 'Listings', 
+angular.module('listings').controller('ListingsController', ['$scope', 'Listings',
   function($scope, Listings) {
     /* Get all the listings, then bind it to the scope */
     Listings.getAll().then(function(response) {
@@ -14,7 +14,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 
     $scope.detailedInfo = undefined;
 
-  
+
     $scope.addListing = function() {
     $scope.listings.push($scope.newListing);
     Listings.create($scope.newListing);
@@ -34,14 +34,10 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     });
       $scope.listings.splice(indexOf,1);
     };
-    
+
     $scope.showDetails = function(index) {
       $scope.detailedInfo = $scope.listings[index];
     };
-<<<<<<< Updated upstream
-  }
-]);
-=======
 
     $scope.user = {
           first_name: "",
@@ -51,9 +47,6 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
           id: null
         };
 
-        
-
-        
 
     $scope.register = function() {
       //$scope.user.push($s);
@@ -68,9 +61,6 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       });
     };
 
-    
-          
-         
 
     $scope.login = function () {
       if ($scope.user.username != "" && $scope.user.password != "") {
@@ -84,13 +74,15 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
         }, function (error) {
           console.log("Wrong Credentials");
         });
-        
+
       }
     }
 
-      //Listings.login($scope.newListing);
-      //$scope.newListing = {};
+     
       }
 
+
 ]);
->>>>>>> Stashed changes
+
+
+  
