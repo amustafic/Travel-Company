@@ -4,7 +4,12 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    listingsRouter = require('../routes/listings.server.routes');
+    listingsRouter = require('../routes/listings.server.routes'),
+    contactsRouter = require('../routes/contacts.server.routes'),
+    userRouter = require('../routes/login.server.routes.js'),
+    passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    User = require('../models/passport_user');
 
 module.exports.init = function() {
   //connect to database
@@ -29,8 +34,13 @@ module.exports.init = function() {
   app.use('/api/listings', listingsRouter);
 
 
-  /**TODO 
-  Go to homepage for all routes not specified */ 
+  app.use('/api/contacts', contactsRouter);
+
+  app.use('/api/contacts', contactsRouter);
+
+
+  /**TODO
+  Go to homepage for all routes not specified */
   app.all('/*', function(req, res) {
     res.sendFile(path.resolve('client/index.html'));
   });
