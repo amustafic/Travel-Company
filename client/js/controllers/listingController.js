@@ -6,6 +6,11 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     }, function(error) {
       console.log('Unable to retrieve listings:', error);
     });
+    Listings.getAll().then(function(response) {
+      $scope.contacts = response.data;
+    }, function(error) {
+      console.log('Unable to retrieve contact:', error);
+    });
 
     $scope.detailedInfo = undefined;
 
@@ -15,6 +20,11 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     Listings.create($scope.newListing);
     $scope.newListing = {};
     };
+    $scope.addContact = function() {
+      $scope.contacts.push($scope.contact);
+      Listings.contact($scope.contact);
+      $scope.contact = {};
+      };
 
     $scope.deleteListing = function(index) {
       var indexOf = $scope.listings.indexOf(index);
@@ -28,45 +38,57 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     $scope.showDetails = function(index) {
       $scope.detailedInfo = $scope.listings[index];
     };
-
     $scope.user = {
-          first_name: "",
-          last_name: "",
-          username: "",
-          password: "",
-          id: null
-        };
-
-    $scope.register = function() {
-      //$scope.user.push($s);
-      Listings.register($scope.user).then(function (response) {
-        $scope.user.first_name = response.data.first_name;
-          $scope.user.last_name = response.data.last_name;
-          $scope.user.username = response.data.username;
-          $scope.user.id = response.data._id;
-          console.log("creating user");
-        }, function (error) {
-          console.log('Unable to create user:', error);
-      });
+      first_name: "",
+      last_name: "",
+      username: "",
+      password: "",
+      id: null
     };
 
-    $scope.login = function () {
-      if ($scope.user.username != "" && $scope.user.password != "") {
-        Listings.login($scope.user.username).then(function (response) {
-          // Save user details
-          $scope.user.first_name = response.data.first_name;
-          $scope.user.last_name = response.data.last_name;
-          $scope.user.username = response.data.username;
-          $scope.user.id = response.data._id;
-          // Toggle Views
-        }, function (error) {
-          console.log("Wrong Credentials");
-        });
-      }
-    }
+    
 
-      //Listings.login($scope.newListing);
-      //$scope.newListing = {};
-      }
+    
 
+$scope.register = function() {
+  //$scope.user.push($s);
+  Listings.register($scope.user).then(function (response) {
+    $scope.user.first_name = response.data.first_name;
+      $scope.user.last_name = response.data.last_name;
+      $scope.user.username = response.data.username;
+      $scope.user.id = response.data._id;
+      console.log("creating user");
+    }, function (error) {
+      console.log('Unable to create user:', error);
+  });
+};
+
+
+      
+     
+
+$scope.login = function () {
+  if ($scope.user.username != "" && $scope.user.password != "") {
+    Listings.login($scope.user.username).then(function (response) {
+      // Save user details
+      $scope.user.first_name = response.data.first_name;
+      $scope.user.last_name = response.data.last_name;
+      $scope.user.username = response.data.username;
+      $scope.user.id = response.data._id;
+      // Toggle Views
+    }, function (error) {
+      console.log("Wrong Credentials");
+    });
+    
+  }
+}
+
+  }
 ]);
+
+
+    
+      
+
+
+

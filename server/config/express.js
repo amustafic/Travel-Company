@@ -5,6 +5,7 @@ var path = require('path'),
     bodyParser = require('body-parser'),
     config = require('./config'),
     listingsRouter = require('../routes/listings.server.routes'),
+    contactsRouter = require('../routes/contacts.server.routes'),
     userRouter = require('../routes/login.server.routes.js'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
@@ -43,6 +44,10 @@ passport.deserializeUser(User.deserializeUser());
   app.use('/api/listings', listingsRouter);
 
   app.use('/api/user', userRouter);
+
+  app.use('/api/contacts', contactsRouter);
+
+  app.use('/api/contacts', contactsRouter);
 
 
   /**TODO
