@@ -13,13 +13,9 @@ angular.module('listings', []).factory('Listings', function($http) {
       },
 
 
-    delete: function(_id) {
-	   /**TODO
-        return result of HTTP delete method
-       */
-      return $http.delete('http://localhost:8080/api/listings'+ _id);
-
-    },
+      delete: function(id) {
+        return $http.delete('http://localhost:8080/api/listings/' + id, id);
+      },
 
     login: function(listing) {
       return $http.get('http://localhost:8080/api/user' + user);

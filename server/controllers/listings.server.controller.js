@@ -46,17 +46,17 @@ exports.read = function(req, res) {
 
 /* Delete a listing */
 exports.delete = function(req, res) {
-    var listing = req.listing;
-
-    /* Remove the article */
-    listing.remove(function(error) {
-        if (error){
-          console.log(err);
-          res.status(400).send(err);
-        } else {
-          res.json(listing);
-        }
-    });
+  var listing = req.listing;
+  Listing.findByIdAndRemove(req.params.listingId, function(err, answer){
+    if(err) {
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      res.status(200).send("OK");
+      console.log(res);
+    }
+  });
+  /* Remove the article */
 };
 
 /* Retreive all the director dy listings, sorted alphabetically by listing code */
