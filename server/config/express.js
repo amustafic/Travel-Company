@@ -36,6 +36,9 @@ module.exports.init = function() {
 
   app.use(require('express-session')({
     secret: 'keyboard cat',
+    cookie: {
+        maxAge: 30000
+      },
     resave: true,
     saveUninitialized: true
 }));
