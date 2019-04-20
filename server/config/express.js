@@ -18,12 +18,15 @@ module.exports.init = function() {
 
   //initialize app
   var app = express();
+  /* Passport config */
+  require("./passport")(passport);
 
   //enable request logging for development debugging
   app.use(morgan('dev'));
 
   //body parsing middleware
   app.use(bodyParser.json());
+  app.use(express.urlencoded({ extended: true }));
 
 
   /**TODO
@@ -48,7 +51,10 @@ passport.deserializeUser(User.deserializeUser());
   app.use('/api/contacts', contactsRouter);
   app.use("/api/users", usersRouter);
 
-
+  app.get("/api/session", (req, res) => {
+      console.log("THIS HAPPINGING");
+      res.send(req.session.passport);
+    });
 
   /*Go to homepage for all routes not specified */
   app.all('/*', function(req, res) {
