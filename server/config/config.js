@@ -4,7 +4,7 @@
 //mongodb://adnan:episkeys1@ds219055.mlab.com:19055/boot3
 module.exports = {
     db: {
-      uri: 'mongodb://testUser:password123@ds241493.mlab.com:41493/group2_swe', 
+      uri: 'mongodb://adnan:episkeys1@ds219055.mlab.com:19055/boot3', 
     },
     port: process.env.PORT || 8080
   };

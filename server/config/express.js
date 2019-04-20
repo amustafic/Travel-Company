@@ -1,10 +1,11 @@
-var path = require('path'),
+const path = require('path'),
     express = require('express'),
     Promise = require("bluebird"),
     mongoose = Promise.promisifyAll(require("mongoose")),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
+    session = require("express-session"),
     listingsRouter = require('../routes/listings.server.routes'),
     contactsRouter = require('../routes/contacts.server.routes'),
     userRouter = require('../routes/login.server.routes.js'),
@@ -36,9 +37,6 @@ module.exports.init = function() {
 
   app.use(require('express-session')({
     secret: 'keyboard cat',
-    cookie: {
-        maxAge: 30000
-      },
     resave: true,
     saveUninitialized: true
 }));
