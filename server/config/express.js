@@ -1,6 +1,7 @@
 var path = require('path'),
     express = require('express'),
-    mongoose = require('mongoose'),
+    Promise = require("bluebird"),
+    mongoose = Promise.promisifyAll(require("mongoose")),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
@@ -35,15 +36,15 @@ module.exports.init = function() {
 
   app.use(require('express-session')({
     secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false
+    resave: true,
+    saveUninitialized: true
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
   /*  Use the routers for requests to any API */
   app.use('/api/listings', listingsRouter);
