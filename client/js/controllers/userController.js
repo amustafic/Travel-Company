@@ -51,7 +51,6 @@ angular.module("users").controller("UsersController", [
         })
         .catch(err => {
           alert("Please try again, incorrect credentials provided");
-          // window.location.href = "../index.html";
         });
     };
 
@@ -109,6 +108,12 @@ angular.module("users").controller("UsersController", [
         sessionStorage.getItem("user")
       ).email;
       console.log("sessionname", $scope.sessionUsername);
+    };
+
+    $scope.isAdmin = function() {
+      $scope.sessionIsAdmin = $.parseJSON(
+        sessionStorage.getItem("user")
+      ).isAdmin;
     };
   }
 ]);

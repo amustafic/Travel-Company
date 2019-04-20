@@ -7,103 +7,150 @@
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Clicker Script' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
-	<link rel="stylesheet" href="styles/main.css">
-  <style>
-     .jumbotron{
-       font-family: 'Overpass';
-      }
-      body{
-        background-image: url("styles/beach.jpg");
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        font-family: 'Overpass';
-      }
-      .tableWrapper{
-        background-color: #C7B6DC;
-      }
-  </style>
+    <script src="js/factories/userFactory.js"></script>
+    <script src="js/controllers/userController.js"></script>
 
+  <link rel="stylesheet" href="styles/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
+  <style>
+    .header{
+      background-image: linear-gradient(white, #F0FFF0);
+    }
+  </style>
   </head>
   <body>
+    <!--Big Pretty Picture at the Top-->
+    <section class="wscreen" ng-app="directoryApp" ng-controller="UsersController" ng-init="showName()">
+      <div class="hero-inner">
+
+          <h1>Welcome! {{sessionUsername}}</h1>
+          <br>
+          <h2>Submit your information on the contact form to start your adventure!</h2>
+          <a href="#start" class="btn">Go ahead...</a>
+      </div>
+    </section>
+
+
     <div class="container">
 	  <!--Nav Bar-->
+      <a name="start"></a>
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills float-right">
             <li class="nav-item">
-              <a class="nav-link" href="index.html"><b>Home</b> <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html"><b>About</b></a>
+              <a class="nav-link" href="about-user.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html"><b>Contact</b></a>
+              <a class="nav-link" href="contact-home.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html"><b>Sign Out</b></a>
+              <a class="nav-link" href="user-recomendations.html">Recommendations</a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Logout</a>
+            </li>
           </ul>
         </nav>
-        <img id="logo" src="images/Logo.jpg"/>
-      </div><!--End Nav Bar-->
-
-    <section class="mb-4">
-	<div class="container">
-      <div class="row">
-        <h1><b>Package List</b></h1>
+        <img id="logo" src="images/logo1.jpg"/>
       </div>
-      <div class="row" ng-controller="ListingsController">
-        <div class="col-md-6">
-          <div class="tableWrapper">
-            <table class="table table-striped table-hover">
-              <tr>
-                <th>Package</th>
-                <th>Cost</th>
-				        <th>Description</th>
-                <th>Link</th>
-				        <th></th>
-              </tr>
-              <!--
+      <!--End Nav Bar-->
 
-                  Fill in the rest of the table:
-                      * populate the rows with the code and name of each listing
-                      * include a way to remove individual listings
 
-                -->
-            </table>
+
+      <!--Carousel-->
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="images/sec.jpg" height = 500px width = 100px alt="First slide">
           </div>
-
-        </div>
-        <div class="col-md-6">
-          <div class="jumbotron">
-            <h2>Detailed Information</h2>
-            <!--
-
-              Include a way to display detailed information about an individual listing:
-                   * consider how to use ng-click within the the table to implement this feature
-
-             -->
-			 <div ng-bind="detailedInfo.code"></div>
-			 <div ng-bind="detailedInfo.name"></div>
-			 <div ng-bind="detailedInfo.coordinates.latitude"></div>
-			 <div ng-bind="detailedInfo.coordinates.longitude"></div>
-			 <div ng-bind="detailedInfo.address"></div>
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="display-3">Begin Your Adventure</h1>
+            <p class="lead">Submit your information on the contact form to start your adventure!</p>
+            <p><a class="btn btn-primary btn-lg btnJumbo" href="contact.html" role="button"> Start Booking &raquo;</a></p>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="images/third1.jpeg" height = 500px width = 150px alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="images/temple.jpeg" height = 500px width = 100px alt="Third slide">
           </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-    </div>
+      <!--End of Carousel-->
+      <br>
 
+	  <!--Posts-->
+	  <div class="row marketing">
+        <!--Col 1 Posts-->
+		<div class="col-lg-6">
+		  <h2 class="titleMarketing"> Latest Deals</h2> <br>
+          <h4>Subheading</h4>
+          <p>
+            <div class="contain">
+                  <img src="images/europeguide.jpg" alt="europe" height= 200px width = 550px>
+                  <div class="overlay">
+                    <div class="text">From $159</div>
+                  </div>
+           </div>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-    </div>
-      <footer class="footer">
+          <h4>Subheading</h4>
+          <p>
+          <div class="contain">
+            <img src="images/rocks.jpg" alt="Virgin Islands" height= 200px width = 550px>
+            <div class="overlay">
+              <div class="text">From $379</div>
+            </div>
+          </div>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>
+            <div class="contain">
+              <img src="images/italy.jpg" alt="italy" height= 200px width = 550px>
+              <div class="overlay">
+                <div class="text">From $299</div>
+              </div>
+            </div>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <br>
+    </div><!--End Col 1 Posts-->
+
+		<!--Col 2 Posts-->
+		<div class="col-lg-6">
+		  <h2 class="titleMarketing">News</h2> <br>
+          <h4>Subheading</h4>
+          <p><img src="images/disney.jpg" alt="disney" height= 200px width = 550px>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna</p>
+
+          <h4>Subheading</h4>
+          <p><img src="images/bahamas.jpg" alt="bahamas" height= 200px width = 550px>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna</p>
+
+        </div><!--Col 2 Posts-->
+      </div><!--End Posts-->
+
+	  <!--Footer-->
+	  <footer class="footer">
         <p>&copy; Bochitto Travel</p>
       </footer>
+    <!--End Footer-->
 
     </div> <!-- /container -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
