@@ -28,7 +28,7 @@
          margin-right: 350px;
          border-radius: 18px;
          opacity: .97;
-         border-style: : groove;
+         border-style: groove;
        }
        body{
          background-image: url("images/login.jpg");
@@ -42,8 +42,6 @@
          background-color: white;
          border-radius: 18px;
          background: transparent;
-         width: 100%;
-         height: auto;
        }
        img{
          display: block;
@@ -52,7 +50,7 @@
        }
   </style>
   </head>
-  <body>
+  <body ng-app="directoryApp">
     <div class="container">
 	<!--Nav Bar
       <div class="header clearfix">
@@ -79,17 +77,33 @@
 
 
     <br>
-    <img src="images/Logo.jpg" alt="Logo" class="responsive">
+    <img src="images/Logo.jpg" alt="Logo">
     <br>
 
-    <div class="row">
+    <div class="row" ng-controller="ListingsController">
         <div class="col-md-12 mb-md-0 mb-5">
-            <form id="contact-form" class = 'responsive' name="contact-form" action="mail.php" method="POST">
+            <form id="login-form" name="login-form" action="mail.php" method="POST">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="md-form mb-0">
+                          <label for="firstname">First Name</label>
+                          <input type="text" name="firstname" class="form-control" placeholder="First Name" id="firstname" ng-model="user.first_name">
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="md-form mb-0">
+                          <label for="lastname" class="">Last Name</label>
+                          <input type="text" name="lastname" class="form-control" placeholder="Last Name" id="username" ng-model="user.last_name">
+                      </div>
+                  </div>
+              </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
                             <label for="username" class="">Username</label>
-                            <input type="text" name="username" class="form-control" placeholder="Username">
+                            <input type="text" name="username" class="form-control" placeholder="Username" id="username" ng-model="user.username">
                         </div>
                     </div>
                 </div>
@@ -97,18 +111,15 @@
                   <div class="col-md-12">
                       <div class="md-form mb-0">
                           <label for="Password" class="">Password</label>
-                          <input type="text" name="password" class="form-control" placeholder="Password">
+                          <input type="text" name="password" class="form-control" placeholder="Password" id="password" ng-model="user.password">
                       </div>
                   </div>
                 </div>
             </form>
-            <br>
-             &ensp; &nbsp;
-            <a href="register.html">No Account? Register Here</a>
-            <br>
+
             <br>
             <div class="text-center text-md-center">
-                <a href="client.html" class="btn btn-primary btnSubmit" onclick="">Send</a>
+                <button class="btn btn-primary btnSubmit" ng-click="register()">Send</a>
             </div>
             <div class="status"></div>
             <br>
