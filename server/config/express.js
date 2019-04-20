@@ -10,6 +10,7 @@ var path = require('path'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     User = require('../models/passport_user');
+    usersRouter = require("../routes/user.server.routes")
 
 module.exports.init = function() {
   //connect to database
@@ -34,23 +35,22 @@ module.exports.init = function() {
     resave: false,
     saveUninitialized: false
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-  /**TODO
-  Use the listings router for requests to the api */
+
+  /*  Use the routers for requests to any API */
   app.use('/api/listings', listingsRouter);
-
   app.use('/api/user', userRouter);
-
   app.use('/api/contacts', contactsRouter);
+  app.use("/api/users", usersRouter);
 
-  
 
-  /**TODO
-  Go to homepage for all routes not specified */
+
+  /*Go to homepage for all routes not specified */
   app.all('/*', function(req, res) {
     res.sendFile(path.resolve('client/index.html'));
   });
