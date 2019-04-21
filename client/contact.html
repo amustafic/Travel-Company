@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/factories/listingFactory.js"></script>
-    <script src="js/controllers/listingController.js"></script>
+    <script src="js/factories/contactFactory.js"></script>
+    <script src="js/controllers/contactController.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
 	<link rel="stylesheet" href="styles/style.css">
   <style>
@@ -61,7 +61,7 @@
   <div class = "form">
     <h1> <b>Contact Form</b> </h1>
 
-    <div class="row" ng-controller="ListingsController">
+    <div class="row" ng-controller="ContactController">
         <div class="col-md-12 mb-md-0 mb-5">
             <form novalidate class="simple-form">
 
@@ -74,13 +74,13 @@
                       <div class="col-md-6">
                           <div class="md-form mb-1">
 							                     <label for="firstName" class="">First Name</label>
-                                   <input type="text" name="firstName" class="form-control" placeholder="First Name" ng-model="contact.firstname">
+                                   <input type="text" name="firstName" class="form-control" placeholder="First Name" ng-model="newContact.firstname">
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="md-form mb-1">
                               <label for="lastName" class="">Last Name</label>
-  							              <input type="text" name="lastName" class="form-control" placeholder="Last Name" ng-model="contact.lastname">
+  							              <input type="text" name="lastName" class="form-control" placeholder="Last Name" ng-model="newContact.lastname">
                           </div>
                       </div>
                   </div>
@@ -91,13 +91,13 @@
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
           							              <label for="email" class="">Email</label>
-                                      <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="contact.email">
+                                      <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="newContact.email">
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
                     							         <label for="phone" class="">Phone</label>
-                                           <input type="text" name="phone" class="form-control" placeholder="(xxx)-xxx-xxxx" ng-model="contact.phone">
+                                           <input type="text" name="phone" class="form-control" placeholder="(xxx)-xxx-xxxx" ng-model="newContact.phone">
                                   </div>
                               </div>
                   </div><!--End Email & Phone-->
@@ -107,13 +107,13 @@
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
           							              <label for="Departure" class="">Departure</label>
-                                      <input type="text" name="Departure" class="form-control" placeholder="MM/DD/YYYY" ng-model="contact.departure">
+                                      <input type="text" name="Departure" class="form-control" placeholder="MM/DD/YYYY" ng-model="newContact.departure">
                                   </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="md-form mb-1">
                                     <label for="Arrival" class="">Arrival</label>
-                                    <input type="text" name="Arrival" class="form-control" placeholder="MM/DD/YYYY" ng-model="contact.arrival">
+                                    <input type="text" name="Arrival" class="form-control" placeholder="MM/DD/YYYY" ng-model="newContact.arrival">
                                 </div>
                               </div>
                   </div>
@@ -124,13 +124,13 @@
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
           							              <label for="minBudget" class="">Minimum Budget</label>
-                                      <input type="text" name="minBudget" class="form-control" placeholder="$" ng-model="contact.minbudget">
+                                      <input type="text" name="minBudget" class="form-control" placeholder="$" ng-model="newContact.minbudget">
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
                                       <label for="maxBudget" class="">Maximum Budget</label>
-          							              <input type="text" name="maxBudget" class="form-control" placeholder="$" ng-model="contact.maxbudget">
+          							              <input type="text" name="maxBudget" class="form-control" placeholder="$" ng-model="newContact.maxbudget">
                                   </div>
                               </div>
                   </div><!--End Budget-->
@@ -139,7 +139,7 @@
                   <div class="row">
                               <div class="col-md-12">
                                     <label for="Comments">Comments</label>
-                                    <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="contact.comments"></textarea>
+                                    <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="newContact.comments"></textarea>
                               </div>
                   </div><!--End Comments/Concerns-->
 

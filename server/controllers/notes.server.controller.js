@@ -1,6 +1,6 @@
 /* Dependencies */
 var mongoose = require('mongoose'),
-    Contact = require('../models/contacts.server.model.js');
+    Note = require('../models/notes.server.model.js');
     //User = require('../models/passport_user.js');
 /*
   In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
@@ -15,16 +15,16 @@ var mongoose = require('mongoose'),
 exports.create = function(req, res) {
 
   /* Instantiate a Listing */
-  var contact = new Contact(req.body);
+  var note = new Note(req.body);
 
 
   /* Then save the listing */
-  contact.save(function(err) {
+  note.save(function(err) {
     if(err) {
       console.log(err);
       res.status(400).send(err);
     } else {
-      res.json(contact);
+      res.json(note);
     }
   });
 };

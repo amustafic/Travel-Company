@@ -8,9 +8,9 @@ angular.module('listings', []).factory('Listings', function($http) {
 	  return $http.post('http://localhost:8080/api/listings', listing);
     },
 
-    contact: function(contact) {
-      return $http.post('http://localhost:8080/api/contacts', contact);
-      },
+      addNote: function(note) {
+        return $http.post('http://localhost:8080/api/notes', note);
+        },
 
 
     delete: function(_id) {

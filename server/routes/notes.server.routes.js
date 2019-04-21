@@ -1,4 +1,4 @@
-var contactController = require('../controllers/contacts.server.controller.js'),
+var noteController = require('../controllers/notes.server.controller.js'),
     express = require('express'),
     router = express.Router();
 
@@ -7,7 +7,7 @@ var contactController = require('../controllers/contacts.server.controller.js'),
 //router.route(':username').get(auth.getUserByUsername);
 
 
-router.route('/').post(contactController.create);
+router.route('/').post(noteController.create);
     // restrict index for logged in user only
 //router.get('/', auth.home);
 

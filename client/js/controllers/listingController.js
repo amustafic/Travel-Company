@@ -6,12 +6,13 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     }, function(error) {
       console.log('Unable to retrieve listings:', error);
     });
+   
     Listings.getAll().then(function(response) {
-      $scope.contacts = response.data;
+      $scope.notes = response.data;
     }, function(error) {
       console.log('Unable to retrieve contact:', error);
     });
-
+    
     $scope.detailedInfo = undefined;
 
 
@@ -20,11 +21,13 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     Listings.create($scope.newListing);
     $scope.newListing = {};
     };
-    $scope.addContact = function() {
-      $scope.contacts.push($scope.contact);
-      Listings.contact($scope.contact);
-      $scope.contact = {};
-      };
+    
+      
+      $scope.addNote = function() {
+        $scope.notes.push($scope.note);
+        Listings.addNote($scope.note);
+        $scope.note = {};
+        };
 
     $scope.deleteListing = function(index) {
       var indexOf = $scope.listings.indexOf(index);

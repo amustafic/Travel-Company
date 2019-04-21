@@ -3,40 +3,22 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 /* Create your schema */
-var contactSchema = new Schema({
+var noteSchema = new Schema({
   firstname: {
     type: String 
   }, 
   lastname: {
     type: String 
   }, 
-  email: {
+  textnote: {
     type: String
-  },
-   arrival: {
-    type: String
-  },
-  departure: {
-    type: String
-  },
-  minbudget: {
-    type: Number
-  },
-  maxbudget: {
-    type: Number
-  },
-  phone: {
-    type: Number
-  },
-   comments: {
-    type: String
-  },
-  created_at: Date,
-  updated_at: Date
+  }, 
+   created_at: Date,
+   updated_at: Date
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-contactSchema.pre('save', function(next) {
+noteSchema.pre('save', function(next) {
   var currentTime = new Date;
   this.updated_at = currentTime;
   if(!this.created_at)
@@ -47,7 +29,7 @@ contactSchema.pre('save', function(next) {
 });
 
 /* Use your schema to instantiate a Mongoose model */
-var Contact = mongoose.model('Contact', contactSchema);
+var Note = mongoose.model('Note', noteSchema);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-module.exports = Contact;
+module.exports = Note;
