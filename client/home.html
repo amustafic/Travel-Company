@@ -7,8 +7,6 @@
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
-    <script src="js/factories/userFactory.js"></script>
-    <script src="js/controllers/userController.js"></script>
 
   <link rel="stylesheet" href="styles/style.css">
   <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
@@ -17,9 +15,68 @@
     .header{
       background-image: linear-gradient(white, #F0FFF0);
     }
+    * {
+      box-sizing: border-box;
+    }
+
+
+
+    /* The grid: Four equal columns that floats next to each other */
+    .column1 {
+      float: left;
+      width: 25%;
+      padding: 10px;
+    }
+
+    /* Style the images inside the grid */
+    .column1 img {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    .column1 img:hover {
+      opacity: 1;
+    }
+
+    /* Clear floats after the columns */
+    .row1:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* The expanding image container */
+    .container1 {
+      position: relative;
+      display: none;
+    }
+
+    /* Expanding image text */
+    #imgtext {
+    	position: absolute; /* Position the background text */
+      bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+      background: rgb(0, 0, 0); /* Fallback color */
+      background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+      color: #f1f1f1; /* Grey text */
+      width: 100%; /* Full width */
+      padding: 20px; /* Some padding */
+      text-align: center;
+      font-size: 250%;
+      font-family: 'Overpass';
+    }
+
+    /* Closable button inside the expanded image */
+    .closebtn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: white;
+      font-size: 35px;
+      cursor: pointer;
+    }
   </style>
   </head>
-  <body ng-app="directoryApp" ng-controller="UsersController">
+  <body>
     <!--Big Pretty Picture at the Top-->
     <section class="wscreen" ng-init="showName()">
       <div class="hero-inner">
@@ -31,43 +88,40 @@
       </div>
     </section>
 
+    <div class="container">
+      <!--Nav Bar-->
+        <a name="start"></a>
 
-    <div class="container" >
-	  <!--Nav Bar-->
-      <a name="start"></a>
-
-      <div class="header clearfix">
-        <nav  ng-init="isAdmin()">
-          <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about-user.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact-user.html">Contact</a>
-            </li>
-            <span ng-if="!sessionIsAdmin">
-              <li class="nav-item" >
-                <a class="nav-link" href="user-recomendations.html">Recommendations</a>
+        <div class="header clearfix">
+          <nav  ng-init="isAdmin()">
+            <ul class="nav nav-pills float-right">
+              <li class="nav-item">
+                <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
               </li>
-            </span>
-            <span ng-if="sessionIsAdmin">
-              <li class="nav-item" >
-                <a class="nav-link" href="admin.html">Admin Controls</a>
+              <li class="nav-item">
+                <a class="nav-link" href="about-user.html">About</a>
               </li>
-            </span>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Logout</a>
-            </li>
-          </ul>
-        </nav>
-        <img id="logo" src="images/logo1.jpg"/>
-      </div>
-      <!--End Nav Bar-->
-
-
+              <li class="nav-item">
+                <a class="nav-link" href="contact-user.html">Contact</a>
+              </li>
+              <span ng-if="!sessionIsAdmin">
+                <li class="nav-item" >
+                  <a class="nav-link" href="user-recomendations.html">Recommendations</a>
+                </li>
+              </span>
+              <span ng-if="sessionIsAdmin">
+                <li class="nav-item" >
+                  <a class="nav-link" href="admin.html">Admin Controls</a>
+                </li>
+              </span>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Logout</a>
+              </li>
+            </ul>
+          </nav>
+          <img id="logo" src="images/logo1.jpg"/>
+        </div>
+        <!--End Nav Bar-->
 
       <!--Carousel-->
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -98,57 +152,76 @@
       </div>
       <!--End of Carousel-->
       <br>
+      <br>
+      <br>
 
-	  <!--Posts-->
-	  <div class="row marketing">
-        <!--Col 1 Posts-->
-		<div class="col-lg-6">
-		  <h2 class="titleMarketing"> Latest Deals</h2> <br>
-          <h4>Subheading</h4>
-          <p>
-            <div class="contain">
-                  <img src="images/europeguide.jpg" alt="europe" height= 200px width = 550px>
-                  <div class="overlay">
-                    <div class="text">From $159</div>
-                  </div>
-           </div>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>
-          <div class="contain">
-            <img src="images/rocks.jpg" alt="Virgin Islands" height= 200px width = 550px>
-            <div class="overlay">
-              <div class="text">From $379</div>
-            </div>
+      <div class = row>
+        <h1 class="titleMarketing"> Latest Deals</h1> <br>
+        <div class="container1">
+          <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+          <img id="expandedImg" style="width:100%">
+          <div id="imgtext"></div>
+        </div>
+        <!-- The four columns -->
+        <div class="row1">
+          <div class="column1">
+            <img src="images/t1.jpg" alt="Bahamas all-inclusive package from $399" id="defaultOpen" style="width:100%" onclick="myFunction(this);">
           </div>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+          <div class="column1">
+            <img src="images/t2.jpg" alt="3 day cruise to Virgin Islands from $299" style="width:100%" onclick="myFunction(this);">
+          </div>
+          <div class="column1">
+            <img src="images/t3.jpg" alt="Barbados all-inclusive package from $599" style="width:100%" onclick="myFunction(this);">
+          </div>
+          <div class="column1">
+            <img src="images/t4.jpg" alt="Spa resort in Aruba from $199" style="width:100%" onclick="myFunction(this);">
+          </div>
+        </div>
+      </div>
 
-          <h4>Subheading</h4>
-          <p>
+    <br>
+    <br>
+    <!--Posts-->
+    <h1 class="titleMarketing"> News</h1> <br>
+	  <div class="row marketing">
+      <!--Deals-->
+  		<div class="col-lg-6">
+            <h4>Subheading</h4>
+            <p>
+              <div class="contain">
+                    <img src="images/europeguide.jpg" alt="europe" height= 200px width = 550px>
+             </div>
+            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+            <h4>Subheading</h4>
+            <p>
             <div class="contain">
-              <img src="images/italy.jpg" alt="italy" height= 200px width = 550px>
-              <div class="overlay">
-                <div class="text">From $299</div>
-              </div>
+              <img src="images/rocks.jpg" alt="Virgin Islands" height= 200px width = 550px>
             </div>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-          <br>
-    </div><!--End Col 1 Posts-->
+            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-		<!--Col 2 Posts-->
-		<div class="col-lg-6">
-		  <h2 class="titleMarketing">News</h2> <br>
-          <h4>Subheading</h4>
-          <p><img src="images/disney.jpg" alt="disney" height= 200px width = 550px>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna</p>
+            <h4>Subheading</h4>
+            <p>
+              <div class="contain">
+                <img src="images/italy.jpg" alt="italy" height= 200px width = 550px>
+              </div>
+            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+            <br>
+      </div><!--End Deals-->
 
-          <h4>Subheading</h4>
-          <p><img src="images/bahamas.jpg" alt="bahamas" height= 200px width = 550px>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna</p>
+  		<!--News Posts-->
+  		<div class="col-lg-6">
+            <h4>Subheading</h4>
+            <p><img src="images/disney.jpg" alt="disney" height= 200px width = 550px>
+            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna</p>
 
-        </div><!--Col 2 Posts-->
-      </div><!--End Posts-->
+            <h4>Subheading</h4>
+            <p><img src="images/bahamas.jpg" alt="bahamas" height= 200px width = 550px>
+            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna</p>
+
+          </div>
+        </div>
+      <!--End Posts-->
 
 	  <!--Footer-->
 	  <footer class="footer">
@@ -160,5 +233,15 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      function myFunction(imgs) {
+        var expandImg = document.getElementById("expandedImg");
+        var imgText = document.getElementById("imgtext");
+        expandImg.src = imgs.src;
+        imgText.innerHTML = imgs.alt;
+        expandImg.parentElement.style.display = "block";
+      }
+      document.getElementById("defaultOpen").click();
+      </script>
   </body>
 </html>
