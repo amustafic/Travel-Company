@@ -68,81 +68,48 @@
         <div class="col-md-12 mb-md-0 mb-5">
             <form id="contact-form" name="contact-form" action="mail.php" method="POST">
 
-                <!--Names-->
-				         <div class="row">
-                      <div class="col-md-6">
-                          <div class="md-form mb-1">
-							                     <label for="firstName" class="">First Name</label>
-                                   <input type="text" name="firstName" class="form-control" placeholder="First Name" ng-model="contact.firstname">
-                          </div>
-                      </div>
-                      <div class="col-md-6">
-                          <div class="md-form mb-1">
-                              <label for="lastName" class="">Last Name</label>
-  							              <input type="text" name="lastName" class="form-control" placeholder="Last Name" ng-model="contact.lastname">
-                          </div>
-                      </div>
-                  </div>
-                  <!--End Names-->
+              <!--Names-->
+               <div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form mb-1">
+                                 <label for="firstName" class="">First Name</label>
+                                 <input type="text" name="firstName" class="form-control" placeholder="First Name" ng-model="newListing.firstname">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="md-form mb-1">
+                            <label for="lastName" class="">Last Name</label>
+                            <input type="text" name="lastName" class="form-control" placeholder="Last Name" ng-model="newListing.lastname">
+                        </div>
+                    </div>
+                </div>
+                <!--End Names-->
 
-          				<!--Email-->
-          				<div class="row">
-                              <div class="col-md-12">
-                                  <div class="md-form mb-1">
-          							              <label for="email" class="">Email</label>
-                                      <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="contact.email">
-                                  </div>
-                              </div>
-                              <div class="col-md-6">
-                                  <div class="md-form mb-1">
-                    							         <label for="phone" class="">Phone</label>
-                                           <input type="text" name="phone" class="form-control" placeholder="(xxx)-xxx-xxxx" ng-model="contact.phone">
-                                  </div>
-                              </div>
-                  </div><!--End Email & Phone-->
-
-          				<!--Row Dates-->
-                  <div class="row">
-                              <div class="col-md-6">
-                                  <div class="md-form mb-1">
-          							              <label for="Departure" class="">Departure</label>
-                                      <input type="text" name="Departure" class="form-control" placeholder="MM/DD/YYYY" ng-model="contact.departure">
-                                  </div>
-                              </div>
-                              <div class="col-md-6">
+                <!--Email-->
+                <div class="row">
+                            <div class="col-md-12">
                                 <div class="md-form mb-1">
-                                    <label for="Arrival" class="">Arrival</label>
-                                    <input type="text" name="Arrival" class="form-control" placeholder="MM/DD/YYYY" ng-model="contact.arrival">
+                                    <label for="email" class="">Email</label>
+                                    <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="newListing.email">
                                 </div>
-                              </div>
-                  </div>
-                  <!--End Dates-->
+                            </div>
+                </div><!--End Email-->
 
-          				<!--Row Budget-->
-                  <div class="row">
-                              <div class="col-md-6">
-                                  <div class="md-form mb-1">
-          							              <label for="minBudget" class="">Budget</label>
-                                      <input type="text" name="minBudget" class="form-control" placeholder="$" ng-model="contact.budget">
-                                  </div>
-                              </div>
-                  </div><!--End Budget-->
+                <!--Commnets/Concerns-->
+                <div class="row">
+                            <div class="col-md-12">
+                                  <label for="Comments">Message</label>
+                                  <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="newListing.comments"></textarea>
+                            </div>
+                </div><!--End Comments/Concerns-->
+                <br>
 
-                  <!--Commnets/Concerns-->
-                  <div class="row">
-                              <div class="col-md-12">
-                                    <label for="Comments">Comments</label>
-                                    <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="contact.comments"></textarea>
-                              </div>
-                  </div><!--End Comments/Concerns-->
-                  <br>
-
-                  <div class="text-center text-md">
-
-                    <button class="btn btn-primary btnSubmit" ng-click="addContact()">Send</button>                  </div>
-                  </div>
-                  </div>
-                  <!--End of Submit Button-->
+                <!--Submit Button-->
+                <div class="text-center text-md">
+                  <button class="btn btn-primary btnSubmit" ng-click="addListing()">Send</button>
+                </div>
+                </div>
+                <!--End of Submit Button-->
                   <div class="status"></div>
 
           </form>
