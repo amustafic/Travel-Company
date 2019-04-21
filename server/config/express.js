@@ -8,6 +8,7 @@ const path = require('path'),
     session = require("express-session"),
     listingsRouter = require('../routes/listings.server.routes'),
     contactsRouter = require('../routes/contacts.server.routes'),
+    requestsRouter = require('../routes/requests.server.routes'),
     userRouter = require('../routes/login.server.routes.js'),
     blogpostsRouter = require("../routes/blog.server.routes"),
     passport = require('passport'),
@@ -54,6 +55,7 @@ app.use(passport.session());
   app.use('/api/contacts', contactsRouter);
   app.use("/api/users", usersRouter);
   app.use("/api/blogposts", blogpostsRouter);
+  app.use("/api/requests", requestsRouter);
 
   app.get("/api/session", (req, res) => {
       console.log("THIS HAPPINGING");

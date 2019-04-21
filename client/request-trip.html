@@ -99,7 +99,7 @@
                               <div class="col-md-12">
                                   <div class="md-form mb-1">
           							              <label for="email" class="">Email</label>
-                                      <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="newListing.email">
+                                      <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="request.email">
                                   </div>
                               </div>
                   </div>
@@ -110,14 +110,14 @@
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
           							              <label for="depart" class="">Departure</label>
-                                      <input type="text" name="depart" class="form-control" placeholder="i.e. Gainesville, FL" ng-model="newListing.departure">
+                                      <input type="text" name="depart" class="form-control" placeholder="i.e. Gainesville, FL" ng-model="request.departure">
                                   </div>
                               </div>
 
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
           							              <label for="arrive" class="">Arrival</label>
-                                      <input type="text" name="arrive" class="form-control" placeholder="i.e. Nassau, Bahamas" ng-model="newListing.arrival">
+                                      <input type="text" name="arrive" class="form-control" placeholder="i.e. Nassau, Bahamas" ng-model="request.arrival">
                                   </div>
                               </div>
                   </div>
@@ -128,14 +128,14 @@
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
                                     <label for="ddate">Departing Date</label>
-                                    <input type="date" name="ddate" id="dateofbirth" placeholder="mm/dd/yyyy" ng-model="newListing.departingdate">
+                                    <input type="date" name="ddate" id="dateofbirth" placeholder="mm/dd/yyyy" ng-model="request.departureDate">
                                   </div>
                               </div>
 
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
           							              <label for="return" class="">Return Date</label>
-                                      <input type="date" name="return" id="dateofbirth" placeholder="mm/dd/yyyy" ng-model="newListing.return">
+                                      <input type="date" name="return" id="dateofbirth" placeholder="mm/dd/yyyy" ng-model="request.returnDate">
                                   </div>
                               </div>
                   </div>
@@ -145,29 +145,22 @@
           				<div class="row">
                               <div class="col-md-3">
                                   <div class="md-form mb-1">
-          							              <label for="min" class="">Minimum Budget</label>
-                                      <input type="text" name="min" class="form-control" placeholder="$" ng-model="newListing.min">
-                                  </div>
-                              </div>
-
-                              <div class="col-md-3">
-                                  <div class="md-form mb-1">
-          							              <label for="max" class="">Maximum Budget</label>
-                                      <input type="text" name="max" class="form-control" placeholder="$" ng-model="newListing.max">
+          							              <label for="min" class="">Budget</label>
+                                      <input type="text" name="min" class="form-control" placeholder="$" ng-model="request.budget">
                                   </div>
                               </div>
 
                               <div class="col-md-3">
                                   <div class="md-form mb-1">
           							              <label for="adults" class="">Number of Adults</label>
-                                      <input type="text" name="adults" class="form-control" placeholder="# of Adults" ng-model="newListing.adults">
+                                      <input type="text" name="adults" class="form-control" placeholder="# of Adults" ng-model="request.numAdults">
                                   </div>
                               </div>
 
                               <div class="col-md-3">
                                   <div class="md-form mb-1">
           							              <label for="kid" class="">Number of Children</label>
-                                      <input type="text" name="kid" class="form-control" placeholder="# of Children" ng-model="newListing.kids">
+                                      <input type="text" name="kid" class="form-control" placeholder="# of Children" ng-model="request.numKids">
                                   </div>
                               </div>
                   </div>
@@ -177,7 +170,7 @@
                   <div class="row">
                               <div class="col-md-12">
                                     <label for="Comments">Message</label>
-                                    <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="newListing.comments"></textarea>
+                                    <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="request.comments"></textarea>
                               </div>
                   </div>
                   <!--End Comments/Concerns-->
@@ -185,7 +178,7 @@
 
                   <!--Submit Button-->
                   <div class="text-center text-md">
-                    <button class="btn btn-primary btnSubmit" ng-click="addListing()">Submit</button>
+                    <button class="btn btn-primary btnSubmit" ng-click="addRequest()">Submit</button>
                   </div>
                   </div>
                   <!--End of Submit Button-->

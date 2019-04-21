@@ -19,19 +19,7 @@
     }
   </style>
   </head>
-  <body>
-    <!--Big Pretty Picture at the Top-->
-    <section class="wscreen" ng-app="directoryApp" ng-controller="UsersController" ng-init="showName()">
-      <div class="hero-inner">
-
-          <h1>Welcome! {{sessionUsername}}</h1>
-          <br>
-          <h2>Submit your information on the contact form to start your adventure!</h2>
-          <a href="#start" class="btn">Go ahead...</a>
-      </div>
-    </section>
-
-
+  <body ng-app="directoryApp">
     <div class="container">
 	  <!--Nav Bar-->
       <a name="start"></a>
@@ -51,6 +39,9 @@
               <a class="nav-link" href="user-recomendations.html">Recommendations</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="request-trip.html">Request Trip Assitance</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="login.html">Logout</a>
             </li>
           </ul>
@@ -59,96 +50,32 @@
       </div><!--End Nav Bar-->
 
     <section class="mb-4">
-	<div class="container">
-      <div class="row">
-        &ensp; &nbsp;
-        <h1><b>Package List</b></h1>
+      <div class="col-sm-9" ng-controller="ListingsController" data-ng-init="getAll()">
+
+          <table class="table table-striped table-hover">
+              <thead>
+                  <th colspan="3">Recommendation</th>
+              </thead>
+              <thead>
+                      <th>Title</th>
+                      <th>Description</th>
+                      <th>Estimated Price</th>
+                      <th>Link</th>
+              </thead>
+              <tbody ng-repeat = "recommendation in recommendations">
+                  <tr>
+                      <td>{{recommendation.title}}</td>
+                      <td>{{recommendation.description}}</td>
+                      <td>{{recommendation.price}}</td>
+                      <td>{{recommendation.link}}</td>
+                      <td>
+                          <button>Delete</button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+
       </div>
-      <!--End Nav Bar-->
-
-
-
-      <!--Carousel-->
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="images/sec.jpg" height = 500px width = 100px alt="First slide">
-          </div>
-          <div class="carousel-caption d-none d-md-block">
-            <h1 class="display-3">Begin Your Adventure</h1>
-            <p class="lead">Submit your information on the contact form to start your adventure!</p>
-            <p><a class="btn btn-primary btn-lg btnJumbo" href="contact.html" role="button"> Start Booking &raquo;</a></p>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="images/third1.jpeg" height = 500px width = 150px alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="images/temple.jpeg" height = 500px width = 100px alt="Third slide">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <!--End of Carousel-->
-      <br>
-
-	  <!--Posts-->
-	  <div class="row marketing">
-        <!--Col 1 Posts-->
-		<div class="col-lg-6">
-		  <h2 class="titleMarketing"> Latest Deals</h2> <br>
-          <h4>Subheading</h4>
-          <p>
-            <div class="contain">
-                  <img src="images/europeguide.jpg" alt="europe" height= 200px width = 550px>
-                  <div class="overlay">
-                    <div class="text">From $159</div>
-                  </div>
-           </div>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>
-          <div class="contain">
-            <img src="images/rocks.jpg" alt="Virgin Islands" height= 200px width = 550px>
-            <div class="overlay">
-              <div class="text">From $379</div>
-            </div>
-          </div>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>
-            <div class="contain">
-              <img src="images/italy.jpg" alt="italy" height= 200px width = 550px>
-              <div class="overlay">
-                <div class="text">From $299</div>
-              </div>
-            </div>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-          <br>
-    </div><!--End Col 1 Posts-->
-
-		<!--Col 2 Posts-->
-		<div class="col-lg-6">
-		  <h2 class="titleMarketing">News</h2> <br>
-          <h4>Subheading</h4>
-          <p><img src="images/disney.jpg" alt="disney" height= 200px width = 550px>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna</p>
-
-          <h4>Subheading</h4>
-          <p><img src="images/bahamas.jpg" alt="bahamas" height= 200px width = 550px>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna</p>
-
-        </div><!--Col 2 Posts-->
-      </div><!--End Posts-->
-
 	  <!--Footer-->
 	  <footer class="footer">
         <p>&copy; Bochitto Travel</p>
