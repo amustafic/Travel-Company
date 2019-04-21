@@ -7,6 +7,8 @@
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
+    <script src="js/factories/userFactory.js"></script>
+    <script src="js/controllers/userController.js"></script>
 	<link rel="stylesheet" href="styles/style.css">
   <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
   <style>
@@ -28,7 +30,7 @@
          margin-right: 350px;
          border-radius: 18px;
          opacity: .97;
-         border-style: : groove;
+         border-style: groove;
        }
        body{
          background-image: url("images/login.jpg");
@@ -53,15 +55,29 @@
        }
   </style>
   </head>
-  <body>
-    <!-- Nav Bar -->
-    <div class="topnav">
-      <div class="topnav-right">
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About</a>
-        <a href="index.html">Home</a>
+  <body ng-app="directoryApp">
+    <div class="container">
+	    <!-- Nav Bar -->
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
+        </nav>
+        <img id="logo" src="images/logo1.jpg"/>
       </div>
-    </div>
+      <!-- End Nav Bar -->
 
     <div class="container">
       <section class="mb-4">
@@ -69,16 +85,16 @@
     <!--Logo-->
     <img src="images/Logo.jpg" alt="Logo" class="responsive">
     <br>
-    <!--Start of Login Form-->
-    <div class="row">
+
+    <div class="row" ng-controller="UsersController">
         <div class="col-md-12 mb-md-0 mb-5">
             <form id="contact-form" class = 'responsive' name="contact-form" action="mail.php" method="POST">
                 <!--Username-->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
-                            <label for="username" class="">Username</label>
-                            <input type="text" name="username" class="form-control" placeholder="Username" ng-model="user.username">
+                            <label for="username" class="">Email</label>
+                            <input type="text" name="username" class="form-control" placeholder="Email" ng-model="email">
                         </div>
                     </div>
                 </div>
@@ -87,7 +103,7 @@
                   <div class="col-md-12">
                       <div class="md-form mb-0">
                           <label for="Password" class="">Password</label>
-                          <input type="password" name="password" class="form-control" placeholder="Password">
+                          <input type="text" name="password" class="form-control" placeholder="Password" ng-model="password">
                       </div>
                   </div>
                 </div>
@@ -100,17 +116,16 @@
             <br>
             <!--Submit-->
             <div class="text-center text-md-center">
-                <a href="admin.html"><button class="btn btn-primary btnSubmit" ng-click="login()">Send</button></a>
+                <button class="btn btn-primary btnSubmit" ng-click="authenticateUser(email, password)">Send</button>
             </div>
             <div class="status"></div>
             <br>
         </div>
-        </div>
+    </div>
 		</section>
 
 
     <div>
-      <!--
       <footer class="footer">
         <p>&copy; Bochitto Travel</p>
       </footer>

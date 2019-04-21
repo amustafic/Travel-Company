@@ -7,6 +7,8 @@
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
+    <script src="js/factories/blogFactory.js"></script>
+    <script src="js/controllers/blogController.js"></script>
 
   <link rel="stylesheet" href="styles/style.css">
   <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
@@ -76,7 +78,7 @@
     }
   </style>
   </head>
-  <body>
+  <body ng-app="directoryApp">
     <!--Big Pretty Picture at the Top-->
     <section class="wscreen">
       <div class="hero-inner">
@@ -174,17 +176,16 @@
     <!--Posts-->
     <h1 class="titleMarketing"> News</h1> <br>
 	  <div class="row marketing">
-      <!--Deals-->
-  		<div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p>
-              <div class="contain">
-                    <img src="images/europeguide.jpg" alt="europe" height= 200px width = 550px>
-             </div>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-            <h4>Subheading</h4>
-            <p>
+        <!--Col 1 Posts-->
+		<div class="col-lg-6" ng-controller="BlogPostsController" data-ng-init="getAll()">
+		  <h2 class="titleMarketing"> Latest Deals</h2> <br>
+          <div ng-repeat = "blogPost in blogPosts">
+            <td>{{blogPost.title}}</td>
+            <td>{{blogPost.text}}</td>
+            <td>{{blogPost.createdDate | date}}</td>
+          </div>
+          <h4>Subheading</h4>
             <div class="contain">
               <img src="images/rocks.jpg" alt="Virgin Islands" height= 200px width = 550px>
             </div>

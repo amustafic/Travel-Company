@@ -1,18 +1,18 @@
 /* Import mongoose and define any variables needed to create the schema */
-var mongoose = require('mongoose'), 
+var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 /* Create your schema */
 var contactSchema = new Schema({
   firstname: {
-    type: String 
-  }, 
+    type: String
+  },
   lastname: {
-    type: String 
-  }, 
+    type: String
+  },
   textnote: {
     type: String
-  }, 
+  },
   email: {
     type: String
   },
@@ -22,10 +22,7 @@ var contactSchema = new Schema({
   departure: {
     type: String
   },
-  minbudget: {
-    type: Number
-  },
-  maxbudget: {
+  budget: {
     type: Number
   },
   phone: {

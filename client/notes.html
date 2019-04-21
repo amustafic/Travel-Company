@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-   <!--
-
-    <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
-  <link rel="stylesheet" href="styles/style.css"> -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -75,22 +71,23 @@
               <tr>
                 <th scope='col' class='text-center'>First name</th>
                 <th scope='col' class='text-center'>Last name</th>
+                <th class='text-center'>Edit</th>
                 <th class='text-center'>Delete</th>
               </tr>
-              <tr ng-repeat="listing in listings | filter: query">
-                <td ng-click="showDetails($index)" >{{listing.firstname}}</td>
-                <td ng-click="showDetails($index)" >{{listing.lastname}}</td>
+              <tr ng-repeat="listing in listings | filter: query" ng-click="showDetails($index)">
+                <td>{{listing.firstname}}</td>
+                <td>{{listing.lastname}}</td>
+                <td> <button ng-click="deleteListing(listing._id)">Edit</button><span style="color: red;"></span></td>
                 <td> <button ng-click="deleteListing(listing._id)">Delete</button><span style="color: red;"></span></td>
               </tr>
             </table>
           </div>
           <form novalidate class="simple-form">
-            <h2>Add New Note</h2>
-            <b>First name:</b> <input type="text"  class="form-control text-center form-control-lg" ng-model="newListing.firstname" /><br />
-            <b>Last name:</b> <input type="text" class="form-control text-center form-control-lg" ng-model="newListing.lastname" /><br />
-           <b>Notes:</b> <textarea type="text"  class="form-control text-center form-control-lg" ng-model="newListing.textnote" /></textarea><br />
+            <h2>Add New Vendor</h2>
+            <b>Vendor Name:</b> <input type="text"  class="form-control text-center form-control-lg" ng-model="newListing.firstname" /><br />
+            <b>Website:</b> <input type="text" class="form-control text-center form-control-lg" ng-model="newListing.lastname" /><br />
 
-            <button class="btn btn-primary btn-lg btn-block" ng-click="addListing()">Add Listing</button>
+            <button class="btn btn-primary btn-lg btn-block" ng-click="addListing()">Add Vendor</button>
           </form>
         </div>
         <div class="col-md-6">
@@ -100,8 +97,7 @@
             <p>{{detailedInfo.textnote}}</p>
           </div>
         </div>
-      </div>
-    </div>
 
+    </div>
   </body>
 </html>

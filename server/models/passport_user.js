@@ -23,5 +23,5 @@ loginSchema.pre('save', function(next) {
   next();
 });
 
-const User = mongoose.model('User', loginSchema);
+const User = mongoose.model('Users', loginSchema);
 module.exports = User;
