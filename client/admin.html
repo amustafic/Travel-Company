@@ -27,13 +27,13 @@
       }
   </style>
   </head>
-  <body ng-app="directoryApp" ng-controller="UsersController" ng-init="isAdmin()"  ng-if="sessionIsAdmin">
+  <body ng-app="directoryApp" ng-controller="UsersController" ng-init="isAdmin()">
     <div class="container">
     <span ng-if="sessionIsAdmin">
-      <!--Nav Bar-->
       <div class="container">
   	  <!--Nav Bar-->
         <div class="header clearfix">
+          <img id="logo" src="images/Logo.jpg"/>
           <nav>
             <ul class="nav nav-pills float-right">
               <li class="nav-item">
@@ -63,13 +63,12 @@
 
             </ul>
           </nav>
-          <img id="logo" src="images/Logo.jpg"/>
         </div><!--End Nav Bar-->
 
       <div class="row">
         <h1 class="text-center"> Notes</h1>
       </div>
-      <div class="row" ng-controller="ListingsController">
+      <div class="row" ng-controller="UsersController">
         <div class="col-md-6">
           <div class="input-group" id="searchBar">
             <span class="input-group-addon glyphicon glyphicon-search float-left" id="sizing-addon1"></span>
@@ -99,7 +98,7 @@
         </div>
       </div>
     </span>
-    </div>
 
+    </div>
   </body>
 </html>
