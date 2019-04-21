@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
+	<link rel="stylesheet" href="styles/style.css">
+  <style>
+     body{
+        background-color: white;
+     }
+      .container{
+        margin-top: 100px;
+        background-color: white;
+        border-radius: 18px;
+        opacity: .95;
+      }
+      .header{
+        background-color: white;
+      }
+      h1{
+        text-align: center;
+      }
+      .row1{
+        border-style: solid;
+        border-width: 5px;
+        border-color: #725ac1;
+        padding: 25px;
+        border-radius: 5px
+      }
+      [type="date"] {
+        background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+      }
+      [type="date"]::-webkit-inner-spin-button {
+        display: none;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0;
+      }
+
+      /* custom styles */
+      label {
+        display: block;
+      }
+      input {
+        border: 1px solid #c4c4c4;
+        border-radius: 5px;
+        background-color: #fff;
+        padding: 3px 5px;
+        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+        width: 190px;
+      }
+  </style>
+  </head>
+  <body ng-app="directoryApp">
+    <div class="container">
+	  <!--Nav Bar-->
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
+        </nav>
+        <img id="logo" src="images/logo1.jpg"/>
+      </div><!--End Nav Bar-->
+
+    <section class="mb-4">
+
+	<!--Form-->
+  <div class = "form">
+    <h1> <b>Request a Trip</b> </h1>
+
+    <div class="row1" ng-controller="ListingsController">
+        <div class="col-md-12 mb-md-0 mb-5">
+            <form novalidate class="simple-form">
+
+    <div class="row">
+        <div class="col-md-12 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+          				<!--Email-->
+          				<div class="row">
+                              <div class="col-md-12">
+                                  <div class="md-form mb-1">
+          							              <label for="email" class="">Email</label>
+                                      <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="newListing.email">
+                                  </div>
+                              </div>
+                  </div>
+                  <!--End Email-->
+
+                  <!--Location-->
+          				<div class="row">
+                              <div class="col-md-6">
+                                  <div class="md-form mb-1">
+          							              <label for="depart" class="">Departure</label>
+                                      <input type="text" name="depart" class="form-control" placeholder="i.e. Gainesville, FL" ng-model="newListing.departure">
+                                  </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                  <div class="md-form mb-1">
+          							              <label for="arrive" class="">Arrival</label>
+                                      <input type="text" name="arrive" class="form-control" placeholder="i.e. Nassau, Bahamas" ng-model="newListing.arrival">
+                                  </div>
+                              </div>
+                  </div>
+                  <!--End Location-->
+
+                  <!--Dates-->
+          				<div class="row">
+                              <div class="col-md-6">
+                                  <div class="md-form mb-1">
+                                    <label for="ddate">Departing Date</label>
+                                    <input type="date" name="ddate" id="dateofbirth" placeholder="mm/dd/yyyy" ng-model="newListing.departingdate">
+                                  </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                  <div class="md-form mb-1">
+          							              <label for="return" class="">Return Date</label>
+                                      <input type="date" name="return" id="dateofbirth" placeholder="mm/dd/yyyy" ng-model="newListing.return">
+                                  </div>
+                              </div>
+                  </div>
+                  <!--End Dates-->
+
+                  <!--Budget & People-->
+          				<div class="row">
+                              <div class="col-md-3">
+                                  <div class="md-form mb-1">
+          							              <label for="min" class="">Minimum Budget</label>
+                                      <input type="text" name="min" class="form-control" placeholder="$" ng-model="newListing.min">
+                                  </div>
+                              </div>
+
+                              <div class="col-md-3">
+                                  <div class="md-form mb-1">
+          							              <label for="max" class="">Maximum Budget</label>
+                                      <input type="text" name="max" class="form-control" placeholder="$" ng-model="newListing.max">
+                                  </div>
+                              </div>
+
+                              <div class="col-md-3">
+                                  <div class="md-form mb-1">
+          							              <label for="adults" class="">Number of Adults</label>
+                                      <input type="text" name="adults" class="form-control" placeholder="# of Adults" ng-model="newListing.adults">
+                                  </div>
+                              </div>
+
+                              <div class="col-md-3">
+                                  <div class="md-form mb-1">
+          							              <label for="kid" class="">Number of Children</label>
+                                      <input type="text" name="kid" class="form-control" placeholder="# of Children" ng-model="newListing.kids">
+                                  </div>
+                              </div>
+                  </div>
+                  <!--End Budget & People-->
+
+                  <!--Commnets/Concerns-->
+                  <div class="row">
+                              <div class="col-md-12">
+                                    <label for="Comments">Message</label>
+                                    <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="newListing.comments"></textarea>
+                              </div>
+                  </div>
+                  <!--End Comments/Concerns-->
+                  <br>
+
+                  <!--Submit Button-->
+                  <div class="text-center text-md">
+                    <button class="btn btn-primary btnSubmit" ng-click="addListing()">Submit</button>
+                  </div>
+                  </div>
+                  <!--End of Submit Button-->
+                  <div class="status"></div>
+                  <br>
+          </form>
+        </div><!--End Form-->
+        </div>
+        </div>
+		</section>
+
+
+    <div>
+      <footer class="footer">
+        <p>&copy; Bochitto Travel</p>
+      </footer>
+
+    </div> <!-- /container -->
+  </body>
+</html>

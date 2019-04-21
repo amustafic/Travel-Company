@@ -78,40 +78,50 @@
   </head>
   <body>
     <!--Big Pretty Picture at the Top-->
-    <section class="wscreen">
+    <section class="wscreen" ng-init="showName()">
       <div class="hero-inner">
 
-          <h1>Begin Your Next Trip</h1>
+          <h1>Welcome! {{sessionUsername}}</h1>
           <br>
           <h2>Submit your information on the contact form to start your adventure!</h2>
           <a href="#start" class="btn">Go ahead...</a>
       </div>
     </section>
 
-
     <div class="container">
-	  <!--Nav Bar-->
-      <a name="start"></a>
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Login</a>
-            </li>
-          </ul>
-        </nav>
-        <img id="logo" src="images/logo1.jpg"/>
-      </div>
-      <!--End Nav Bar-->
+      <!--Nav Bar-->
+        <a name="start"></a>
+
+        <div class="header clearfix">
+          <nav  ng-init="isAdmin()">
+            <ul class="nav nav-pills float-right">
+              <li class="nav-item">
+                <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about-user.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact-user.html">Contact</a>
+              </li>
+              <span ng-if="!sessionIsAdmin">
+                <li class="nav-item" >
+                  <a class="nav-link" href="user-recomendations.html">Recommendations</a>
+                </li>
+              </span>
+              <span ng-if="sessionIsAdmin">
+                <li class="nav-item" >
+                  <a class="nav-link" href="admin.html">Admin Controls</a>
+                </li>
+              </span>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Logout</a>
+              </li>
+            </ul>
+          </nav>
+          <img id="logo" src="images/logo1.jpg"/>
+        </div>
+        <!--End Nav Bar-->
 
       <!--Carousel-->
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

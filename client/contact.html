@@ -86,9 +86,9 @@
                   </div>
                   <!--End Names-->
 
-          				<!--Email & Phone-->
+          				<!--Email-->
           				<div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-12">
                                   <div class="md-form mb-1">
           							              <label for="email" class="">Email</label>
                                       <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="contact.email">
@@ -123,14 +123,8 @@
                   <div class="row">
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
-          							              <label for="minBudget" class="">Minimum Budget</label>
+          							              <label for="budget" class="">Minimum Budget</label>
                                       <input type="text" name="minBudget" class="form-control" placeholder="$" ng-model="contact.minbudget">
-                                  </div>
-                              </div>
-                              <div class="col-md-6">
-                                  <div class="md-form mb-1">
-                                      <label for="maxBudget" class="">Maximum Budget</label>
-          							              <input type="text" name="maxBudget" class="form-control" placeholder="$" ng-model="contact.maxbudget">
                                   </div>
                               </div>
                   </div><!--End Budget-->
@@ -142,14 +136,14 @@
                                     <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="contact.comments"></textarea>
                               </div>
                   </div><!--End Comments/Concerns-->
-
                   <br>
 
                   <div class="text-center text-md">
 
                     <button class="btn btn-primary btnSubmit" ng-click="addContact()">Send</button>                  </div>
                   </div>
-
+                  </div>
+                  <!--End of Submit Button-->
                   <div class="status"></div>
 
           </form>

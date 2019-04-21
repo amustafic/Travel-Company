@@ -36,12 +36,15 @@
          background-position: center center;
          background-repeat: no-repeat;
          background-attachment: fixed;
+         margin: 0;
        }
        .container{
          margin-top: 150px;
          background-color: white;
          border-radius: 18px;
          background: transparent;
+         width: 100%;
+         height: auto;
        }
        img{
          display: block;
@@ -50,39 +53,27 @@
        }
   </style>
   </head>
-  <body ng-app="directoryApp">
+  <body>
+    <!-- Nav Bar -->
+    <div class="topnav">
+      <div class="topnav-right">
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+
     <div class="container">
-	<!--Nav Bar
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Login</a>
-            </li>
-          </ul>
-        </nav>
-        <img id="logo" src="images/logo1.jpg"/>
-      </div> End Nav Bar-->
-
       <section class="mb-4">
-
-
     <br>
-    <img src="images/Logo.jpg" alt="Logo">
+    <!--Logo-->
+    <img src="images/Logo.jpg" alt="Logo" class="responsive">
     <br>
-
-    <div class="row" ng-controller="ListingsController">>
+    <!--Start of Login Form-->
+    <div class="row">
         <div class="col-md-12 mb-md-0 mb-5">
-            <form id="login-form" name="login-form" action="mail.php" method="POST">
+            <form id="contact-form" class = 'responsive' name="contact-form" action="mail.php" method="POST">
+                <!--Username-->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
@@ -91,22 +82,29 @@
                         </div>
                     </div>
                 </div>
+                <!--Password-->
                 <div class = "row">
                   <div class="col-md-12">
                       <div class="md-form mb-0">
                           <label for="Password" class="">Password</label>
-                          <input type="text" name="password" class="form-control" placeholder="Password" ng-model="user.password">
+                          <input type="password" name="password" class="form-control" placeholder="Password">
                       </div>
                   </div>
                 </div>
             </form>
+            <br>
+             &ensp; &nbsp;
+             <!--Link to registration-->
             <a href="register.html">No Account? Register Here</a>
             <br>
+            <br>
+            <!--Submit-->
             <div class="text-center text-md-center">
                 <a href="admin.html"><button class="btn btn-primary btnSubmit" ng-click="login()">Send</button></a>
             </div>
             <div class="status"></div>
             <br>
+        </div>
         </div>
 		</section>
 
@@ -117,5 +115,15 @@
         <p>&copy; Bochitto Travel</p>
       </footer>
     </div>  /container -->
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+    </script>
   </body>
 </html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+	<link rel="stylesheet" href="styles/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
+  <style>
+    .col-md-9{
+      margin: auto;
+     }
+     .row{
+       margin: auto;
+      }
+      .col-md-6{
+        margin: auto;
+       }
+       .header{
+         background-color: white;
+       }
+       .mb-4{
+         background-color: white;
+         margin-left: 350px;
+         margin-right: 350px;
+         border-radius: 18px;
+         opacity: .97;
+         border-style: : groove;
+       }
+       body{
+         background-image: url("images/login.jpg");
+         background-size: cover;
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         margin: 0;
+       }
+       .container{
+         margin-top: 150px;
+         background-color: white;
+         border-radius: 18px;
+         background: transparent;
+         width: 100%;
+         height: auto;
+       }
+       img{
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+       }
+        /* Style the tab */
+        .tab {
+          overflow: hidden;
+          border: 1px solid #ccc;
+          background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+          background-color: inherit;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 14px 16px;
+          transition: 0.3s;
+          font-size: 17px;
+          width: 49%;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+          background-color: #725ac1;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+          background-color: #725ac1;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+          display: none;
+          padding: 6px 12px;
+          border: 1px solid #ccc;
+          border-top: none;
+        }
+  </style>
+  </head>
+  <body ng-app="directoryApp">
+    <!-- Nav Bar -->
+    <div class="topnav">
+      <div class="topnav-right">
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+
+    <div class="container">
+    <section class="mb-4">
+    <br>
+    <!--Logo-->
+    <img src="images/Logo.jpg" alt="Logo" class="responsive">
+    <br>
+    <!--Start of Login Form-->
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'Login')" id="defaultOpen">Login</button>
+      <button class="tablinks" onclick="openCity(event, 'Signup')">Sign Up</button>
+    </div>
+
+    <div id="Login" class="tabcontent">
+      <div class="row">
+          <div class="col-md-12 mb-md-0 mb-5">
+              <form id="contact-form" class = 'responsive' name="contact-form" action="mail.php" method="POST">
+                  <!--Username-->
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="md-form mb-0">
+                              <label for="username" class="">Username</label>
+                              <input type="text" name="username" class="form-control" placeholder="Username">
+                          </div>
+                      </div>
+                  </div>
+                  <!--Password-->
+                  <div class = "row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="Password" class="">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Password">
+                        </div>
+                    </div>
+                  </div>
+              </form>
+              <br>
+              <!--Submit-->
+              <div class="text-center text-md-center">
+                  <a href="client.html" class="btn btn-primary btnSubmit" onclick="">Send</a>
+              </div>
+              <div class="status"></div>
+              <br>
+          </div>
+          </div>
+    </div>
+
+
+    <div id="Signup" class="tabcontent">
+      <div class="row" ng-controller="ListingsController">
+          <div class="col-md-12 mb-md-0 mb-5">
+              <form id="login-form" name="login-form" action="mail.php" method="POST">
+                <div class="row">
+                     <div class="col-md-12">
+                         <div class="md-form mb-0">
+                             <label for="firstname">First Name</label>
+                             <input type="text" name="firstname" class="form-control" placeholder="First Name" id="firstname" ng-model="newFirst">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="col-md-12">
+                         <div class="md-form mb-0">
+                             <label for="lastname" class="">Middle Name</label>
+                             <input type="text" name="lastname" class="form-control" placeholder="Middle Name" id="username" ng-model="newMiddle">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="col-md-12">
+                         <div class="md-form mb-0">
+                             <label for="lastname" class="">Last Name</label>
+                             <input type="text" name="lastname" class="form-control" placeholder="Last Name" id="username" ng-model="newLast">
+                         </div>
+                     </div>
+                 </div>
+                   <div class="row">
+                       <div class="col-md-12">
+                           <div class="md-form mb-0">
+                               <label for="username" class="">Password</label>
+                               <input type="text" name="username" class="form-control" placeholder="Username" id="username" ng-model="newPass">
+                           </div>
+                       </div>
+                   </div>
+                   <div class = "row">
+                     <div class="col-md-12">
+                         <div class="md-form mb-0">
+                             <label for="Password" class="">Repeat Password</label>
+                             <input type="text" name="password" class="form-control" placeholder="Password" id="password" ng-model="newPassVerify">
+                         </div>
+                     </div>
+                   </div>
+                   <div class = "row">
+                     <div class="col-md-12">
+                         <div class="md-form mb-0">
+                             <label for="Password" class="">Email</label>
+                             <input type="text" name="password" class="form-control" placeholder="Password" id="password" ng-model="newEmail">
+                         </div>
+                     </div>
+                   </div>
+                   <div class = "row">
+                     <div class="col-md-12">
+                         <div class="md-form mb-0">
+                             <label for="Password" class="">Phone</label>
+                             <input type="text" name="password" class="form-control" placeholder="Password" id="password" ng-model="newPhone">
+                         </div>
+                     </div>
+                   </div>
+              </form>
+
+              <br>
+              <div class="text-center text-md-center">
+                  <button class="btn btn-primary btnSubmit" ng-click="register()">Send</a>
+              </div>
+              <div class="status"></div>
+              <br>
+          </div>
+    </div>
+    </div>
+
+    </section>
+
+    <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    </script>
+      <!--
+      <footer class="footer">
+        <p>&copy; Bochitto Travel</p>
+      </footer>
+    </div>  /container -->
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+    </script>
+  </body>
+</html>

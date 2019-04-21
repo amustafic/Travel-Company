@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+    <script src="js/factories/userFactory.js"></script>
+    <script src="js/controllers/userController.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Clicker Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    .col-lg-12{
+      font-family: 'Overpass';
+     }
+     .jumbotron{
+       font-family: 'Clicker Script';
+      }
+      .header{
+        background-image: linear-gradient(white, #F0FFF0);
+      }
+      ul{
+        text-align: center;
+      }
+      html {
+        box-sizing: border-box;
+      }
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      .column {
+        float: left;
+        width: 33.3%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+      }
+      @media screen and (max-width: 650px) {
+        .column {
+          width: 100%;
+          display: block;
+        }
+      }
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+      .container {
+        padding: 0 16px;
+        font-family: 'Overpass';
+      }
+      .container::after, .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      .title {
+        color: grey;
+      }
+  </style>
+  </head>
+  <body ng-app="directoryApp" ng-controller="UsersController">
+    <div class="container">
+	  <!--Nav Bar-->
+    <div class="header clearfix">
+      <nav  ng-init="isAdmin()">
+        <ul class="nav nav-pills float-right">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-user.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-user.html">Contact</a>
+          </li>
+          <span ng-if="!sessionIsAdmin">
+            <li class="nav-item" >
+              <a class="nav-link" href="user-recomendations.html">Recommendations</a>
+            </li>
+          </span>
+          <span ng-if="sessionIsAdmin">
+            <li class="nav-item" >
+              <a class="nav-link" href="admin.html">Admin Controls</a>
+            </li>
+          </span>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Logout</a>
+          </li>
+        </ul>
+      </nav>
+      <img id="logo" src="images/logo1.jpg"/>
+    </div><!--End Nav Bar-->
+
+	  <!--Jumbotron-->
+      <div class="jumbotron">
+        <h1 class="display-2" style = center><b>Our Story</b></h1>
+      </div><!--End Jumbotron-->
+
+    <div>
+        <div class="col-lg-12">
+        <h2> Our Mission </h2>
+        <p>Loving mother and daughter who loves to help others fulfill their dream to travel and see all the beauty and majesty that the world has to offer.</p>
+        <br>
+        <h2> What We Do </h2>
+
+      </div>
+
+      <!--Grid of Company's Services-->
+            <div class="row">
+              <div class="column">
+                <div class="card">
+                  <img src="images/cruise.jpg" alt="cruise" style="width:100%">
+                  <div class="container">
+                    <h2>Cruises</h2>
+                    <p>Adventure Both Onshore And Off! Embark on the voyage of a lifetime!</p>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="card">
+                  <img src="images/plane.jpg" alt="plane" style="width:100%">
+                  <div class="container">
+                    <h2>Flights</h2>
+                    <p>Let us handle the hassle of finding the most efficient flight at the cheapest price!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="card">
+                  <img src="images/hotel.jpg" alt="hotel" style="width:100%">
+                  <div class="container">
+                    <h2>Hotels</h2>
+                    <p>Find your ideal hotel at the best price! Book with Confidence!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="column">
+                <div class="card">
+                  <img src="images/car.jpg" alt="car" style="width:100%">
+                  <div class="container">
+                    <h2>Car Rentals</h2>
+                    <p>Sportscar or Minivan? Let us find the best rates for your ideal ride!</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="card">
+                  <img src="images/bus.jpg" alt="bus" style="width:100%">
+                  <div class="container">
+                    <h2>Ground Transportation</h2>
+                    <p>We can bring your group straight to the fun, all at an affordable rate!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="card">
+                  <img src="images/tour.jpg" alt="tour" style="width:100%">
+                  <div class="container">
+                    <h2>Tours</h2>
+                    <p>Want to swim with dolphins or explore how the locals live? We'll find you the best deals!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="column">
+                <div class="card">
+                  <img src="images/roller coaster.jpg" alt="roller coaster" style="width:100%">
+                  <div class="container">
+                    <h2>Attraction Tickets</h2>
+                    <p>Depending on location specializing in the Orlando, FL. ST. Thomas, USVI, locations</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="card">
+                  <img src="images/wedding.jpg" alt="wedding" style="width:100%">
+                  <div class="container">
+                    <h2>Destination Weddings</h2>
+                    <p>You'll say I do to these deals.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="card">
+                  <img src="images/familyreunion.jpg" alt="familyreunion" style="width:100%">
+                  <div class="container">
+                    <h2>Family Reunions</h2>
+                    <p>Bring your family, we'll handle the rest.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      <!--End of Grid of Company's Services-->
+
+
+      <footer class="footer">
+        <p>&copy; Bochitto Travel</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
