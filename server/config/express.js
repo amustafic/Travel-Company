@@ -47,8 +47,7 @@ passport.deserializeUser(User.deserializeUser());
 
   app.use('/api/contacts', contactsRouter);
 
-  app.use('/api/contacts', contactsRouter);
-
+  
 
   /**TODO
   Go to homepage for all routes not specified */
