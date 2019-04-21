@@ -1,5 +1,4 @@
-angular
-  .module("blogPosts", [])
+angular.module("blogPosts", [])
   .factory("BlogPosts", function($http, $location) {
     const apiHost =
       $location.protocol() + "://" + $location.host() + ":" + $location.port();
