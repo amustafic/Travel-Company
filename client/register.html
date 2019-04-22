@@ -82,7 +82,7 @@
                   <div class="col-md-12">
                       <div class="md-form mb-0">
                           <label for="firstname">First Name</label>
-                          <input type="text" name="firstname" class="form-control" placeholder="John" id="firstname" ng-model="newFirst">
+                          <input type="text" name="firstname" class="form-control" placeholder="First Name" id="firstname" ng-model="newFirst">
                       </div>
                   </div>
               </div>
@@ -90,7 +90,7 @@
                   <div class="col-md-12">
                       <div class="md-form mb-0">
                           <label for="lastname" class="">Middle Name</label>
-                          <input type="text" name="lastname" class="form-control" placeholder="Doe" id="username" ng-model="newMiddle">
+                          <input type="text" name="middle" class="form-control" placeholder="Middle" id="middle" ng-model="newMiddle">
                       </div>
                   </div>
               </div>
@@ -98,15 +98,23 @@
                   <div class="col-md-12">
                       <div class="md-form mb-0">
                           <label for="lastname" class="">Last Name</label>
-                          <input type="text" name="lastname" class="form-control" placeholder="Doe" id="username" ng-model="newLast">
+                          <input type="text" name="lastname" class="form-control" placeholder="Last Name" id="lastName" ng-model="newLast">
                       </div>
                   </div>
+              </div>
+              <div class = "row">
+                <div class="col-md-12">
+                    <div class="md-form mb-0">
+                        <label for="Password" class="">Email</label>
+                        <input type="text" name="email" class="form-control" placeholder="Email" id="email" ng-model="newEmail">
+                    </div>
+                </div>
               </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
                             <label for="username" class="">Password</label>
-                            <input type="text" name="username" class="form-control" placeholder="Username" id="username" ng-model="newPass">
+                            <input type="text" name="password" class="form-control" placeholder="Password" id="password" ng-model="newPass">
                         </div>
                     </div>
                 </div>
@@ -114,15 +122,7 @@
                   <div class="col-md-12">
                       <div class="md-form mb-0">
                           <label for="Password" class="">Repeat Password</label>
-                          <input type="text" name="password" class="form-control" placeholder="Password" id="password" ng-model="newPassVerify">
-                      </div>
-                  </div>
-                </div>
-                <div class = "row">
-                  <div class="col-md-12">
-                      <div class="md-form mb-0">
-                          <label for="Password" class="">Email</label>
-                          <input type="text" name="password" class="form-control" placeholder="Password" id="password" ng-model="newEmail">
+                          <input type="text" name="repeatPassword" class="form-control" placeholder="Repeat Password" id="repeatPassword" ng-model="newPassVerify">
                       </div>
                   </div>
                 </div>
@@ -130,12 +130,12 @@
                   <div class="col-md-12">
                       <div class="md-form mb-0">
                           <label for="Password" class="">Phone</label>
-                          <input type="text" name="password" class="form-control" placeholder="Password" id="password" ng-model="newPhone">
+                          <input type="text" name="phone" class="form-control" placeholder="Phone" id="phone" ng-model="newPhone">
                       </div>
                   </div>
                 </div>
             </form>
-
+            <a href="login.html">Sign In</a>
             <br>
             <div class="text-center text-md-center">
                 <button class="btn btn-primary btnSubmit" ng-click="addUser(newFirst, newMiddle, newLast, newPass, newPassVerify, newEmail, newPhone)">Send</a>

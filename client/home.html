@@ -9,6 +9,8 @@
     <script src="js/controllers/listingController.js"></script>
     <script src="js/factories/userFactory.js"></script>
     <script src="js/controllers/userController.js"></script>
+    <script src="js/factories/blogFactory.js"></script>
+    <script src="js/controllers/blogController.js"></script>
 
   <link rel="stylesheet" href="styles/style.css">
   <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
@@ -69,6 +71,14 @@
       color: white;
       font-size: 35px;
       cursor: pointer;
+    }
+    .post{
+      border: solid;
+      border-radius: 10px;
+      border-color: #725ac1;
+      text-align: left;
+      padding: 10px;
+      font-family: 'Overpass';
     }
   </style>
   </head>
@@ -183,44 +193,22 @@
     <!--Posts-->
     <h1 class="titleMarketing"> News</h1> <br>
 	  <div class="row marketing">
-      <!--Deals-->
-  		<div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p>
-              <div class="contain">
-                    <img src="images/europeguide.jpg" alt="europe" height= 200px width = 550px>
-             </div>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-            <h4>Subheading</h4>
-            <p>
-            <div class="contain">
-              <img src="images/rocks.jpg" alt="Virgin Islands" height= 200px width = 550px>
+        <!--Col 1 Posts-->
+		<div class="col-lg-12" ng-controller="BlogPostsController" data-ng-init="getAll()">
+          <div ng-repeat = "blogPost in blogPosts">
+            <div class= "post">
+              <td><h4><b>{{blogPost.title}}</b></h4></td>
+              <td><i>{{blogPost.createdDate | date}}</i></td>
+              <br>
+              <br>
+              <td>{{blogPost.text}}</td>
+              <br>
+              <br>
             </div>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-            <h4>Subheading</h4>
-            <p>
-              <div class="contain">
-                <img src="images/italy.jpg" alt="italy" height= 200px width = 550px>
-              </div>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
             <br>
-      </div><!--End Deals-->
-
-  		<!--News Posts-->
-  		<div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p><img src="images/disney.jpg" alt="disney" height= 200px width = 550px>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna</p>
-
-            <h4>Subheading</h4>
-            <p><img src="images/bahamas.jpg" alt="bahamas" height= 200px width = 550px>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna</p>
-
           </div>
-        </div>
-      <!--End Posts-->
+
 
 	  <!--Footer-->
 	  <footer class="footer">
