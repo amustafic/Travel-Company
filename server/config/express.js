@@ -1,10 +1,22 @@
 var path = require('path'),
     express = require('express'),
+<<<<<<< Updated upstream
     mongoose = require('mongoose'),
+=======
+  //  Promise = require("bluebird"),
+    //mongoose = Promise.promisifyAll(require("mongoose")),
+    mongoose = require("mongoose");
+>>>>>>> Stashed changes
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
     listingsRouter = require('../routes/listings.server.routes'),
+<<<<<<< Updated upstream
+=======
+    contactsRouter = require('../routes/contacts.server.routes'),
+    requestsRouter = require('../routes/requests.server.routes'),
+    recommendationsRouter = require('../routes/recommendation.server.routes'),
+>>>>>>> Stashed changes
     userRouter = require('../routes/login.server.routes.js'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
@@ -43,6 +55,14 @@ passport.deserializeUser(User.deserializeUser());
   app.use('/api/listings', listingsRouter);
 
   app.use('/api/user', userRouter);
+<<<<<<< Updated upstream
+=======
+  app.use('/api/contacts', contactsRouter);
+  app.use("/api/users", usersRouter);
+  app.use("/api/blogposts", blogpostsRouter);
+  app.use("/api/requests", requestsRouter);
+  app.use("/api/recommendation", recommendationsRouter)
+>>>>>>> Stashed changes
 
 
   /**TODO

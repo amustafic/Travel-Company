@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers/recommendationController.js"></script>
+  <script src="js/controllers/recommendationFactory.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Clicker Script' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+
+<body ng-app="directoryApp">
+  <div class="header clearfix">
+    <img id="logo" src="images/Logo.jpg"/>
+    <nav>
+      <ul class="nav nav-pills float-right">
+        <li class="nav-item">
+          <a class="nav-link" href="admin.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="admin-contact.html">Contact Messages</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="admin-recomendation-requests.html">Recommendation Requests</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="create-recommendation.html">Create Recommendation</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="client-list.html">Client List</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="notes.html">Notes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="admin-blogpost.html">Blog Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Sign Out</a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+    <br>
+    <div class="row" ng-controller="RecommendationsController">
+        <div class="col-md-12 mb-md-0 mb-5">
+            <form class = 'responsive' method="POST">
+                <!--Username-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="user" class="">User</label>
+                            <input type="text" name="user" class="form-control" placeholder="Email" ng-model="recommendation.user">
+                        </div>
+                    </div>
+                </div>
+                <!--Password-->
+                <div class = "row">
+                  <div class="col-md-12">
+                      <div class="md-form mb-0">
+                          <label for="Recommend" class="">Recommendation</label>
+                          <input type="text" name="recommend" class="form-control" placeholder="Recommendation" ng-model="recommendation.recommend">
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="info" class="">Information</label>
+                            <input type="text" name="info" class="form-control" placeholder="Description.." ng-model="recommendation.info">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="link" class="">Link</label>
+                            <input type="text" name="link" class="form-control" placeholder="http..." ng-model="recommendation.link">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center text-md-center">
+                    <button class="btn btn-primary btnSubmit" ng-click="addRecommendation()">Send</button>
+                </div>
+            </form>
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+</body>
