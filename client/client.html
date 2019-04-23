@@ -30,9 +30,6 @@
               <a class="nav-link" href="client.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="user-recomendations.html">Recommendations</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="request-trip.html">Request Trip Assistance</a>
             </li>
             <li class="nav-item">
@@ -54,6 +51,7 @@
                       <th>Description</th>
                       <th>Estimated Price</th>
                       <th>Link</th>
+                      <th>Delete</th>
               </thead>
               <div ng-repeat="recommendation in recommendations" ng-init="getAll()">
               <tbody >
@@ -76,7 +74,7 @@
       </div>
 	  <!--Footer-->
 	  <footer class="footer">
-        <p>&copy; Bochitto Travel</p>
+        <p>Bochitto Travel</p>
       </footer>
     <!--End Footer-->
 

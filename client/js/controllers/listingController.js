@@ -1,3 +1,4 @@
+/*This Controller is for testing Purposes*/
 angular.module('listings').controller('ListingsController', ['$scope', 'Listings',
   function($scope, Listings) {
     /* Get all the listings, then bind it to the scope */

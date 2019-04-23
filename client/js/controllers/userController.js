@@ -11,7 +11,6 @@ angular.module("users").controller("UsersController", [
         console.log("Unable to get blogPosts:", error);
       });
 
-    /* Get all the listings, then bind it to the scope */
     $scope.addUser = function(
       newFirst,
       newMiddle,

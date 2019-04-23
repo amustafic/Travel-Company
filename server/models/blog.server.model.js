@@ -1,16 +1,14 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-/* Create your schema */
 var blogPostSchema = new Schema({
-    title: { type: String, required: true }, /* Heading, REQUIRED */
+    title: { type: String, required: true },
     text: String,
     pic: String,
     createdDate: Date,
     updatedDate: Date
 });
 
-/* add created/updated date */
 blogPostSchema.pre('save', function(next) {
     this.updatedDate = new Date;
     if(!this.createdDate)
@@ -20,8 +18,6 @@ blogPostSchema.pre('save', function(next) {
     next();
 });
 
-/* Use your schema to instantiate a Mongoose model */
 var BlogPost = mongoose.model('BlogPost', blogPostSchema);
 
-/* Export the model to make it avaiable to other parts of your Node application */
 module.exports = BlogPost;

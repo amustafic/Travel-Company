@@ -1,18 +1,19 @@
+/*Testing Purposes*/
 /* Import mongoose and define any variables needed to create the schema */
-var mongoose = require('mongoose'), 
+var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 /* Create your schema */
 var listingSchema = new Schema({
   firstname: {
-    type: String 
-  }, 
+    type: String
+  },
   lastname: {
-    type: String 
-  }, 
+    type: String
+  },
   textnote: {
     type: String
-  }, 
+  },
   email: {
     type: String
   },

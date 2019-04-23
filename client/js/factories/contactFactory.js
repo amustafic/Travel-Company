@@ -10,7 +10,7 @@ angular.module("contacts", [])
       },
 
       delete: function(id) {
-        return $http.delete("http://localhost:8080/api/contact/" + id);
+        return $http.delete("http://localhost:8080/api/contacts/" + id);
       }
     };
 

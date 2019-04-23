@@ -1,3 +1,4 @@
+/*For Testing*/
 angular.module('contacts', []).factory('Contacts', function($http) {
   var methods = {
     getAll: function() {

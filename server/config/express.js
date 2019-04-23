@@ -9,7 +9,6 @@ const path = require('path'),
     listingsRouter = require('../routes/listings.server.routes'),
     contactsRouter = require('../routes/contacts.server.routes'),
     requestsRouter = require('../routes/requests.server.routes'),
-    userRouter = require('../routes/login.server.routes.js'),
     recommendationRouter = require('../routes/recommendation.server.routes.js'),
     blogpostsRouter = require("../routes/blog.server.routes"),
     passport = require('passport'),
@@ -33,9 +32,6 @@ module.exports.init = function() {
   app.use(bodyParser.json());
   app.use(express.urlencoded({ extended: true }));
 
-
-  /**TODO
-  Serve static files */
   app.use(express.static('client'))
 
   app.use(require('express-session')({
@@ -46,9 +42,6 @@ module.exports.init = function() {
 
 app.use(passport.initialize());
 app.use(passport.session());
-// passport.use(new LocalStrategy(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
 
   /*  Use the routers for requests to any API */
   app.use('/api/listings', listingsRouter);

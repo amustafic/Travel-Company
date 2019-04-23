@@ -3,7 +3,6 @@ var config = require('./config'),
     express = require('./express');
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
-    // User = require('../models/passport_user');
 
 
 module.exports.start = function() {

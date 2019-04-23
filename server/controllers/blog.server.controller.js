@@ -1,29 +1,23 @@
-/* Dependencies */
 var Blogpost = require("../models/blog.server.model.js");
 
-/* retrieve all blogposts */
 exports.list = function(req, res) {
   res.json(req.blogposts);
 };
 
-/* Create a blogpost */
 exports.create = function(req, res) {
   var blogpost = new Blogpost(req.body);
 
-  /* save to database */
   blogpost.save()
     .then(newBlogpost => res.json(newBlogpost))
     .catch(err => res.status(400).send(err));
 };
 
-/* Show the current blogpost */
 exports.read = function(req, res) {
   Blogpost.findById(req.params)
     .then(foundBlogpost => res.json(foundBlogpost))
     .catch(err => res.status(400).send(err));
 };
 
-/* Update a blogpost */
 exports.update = function(req, res) {
   Blogpost.findById(req.params)
     .then(foundBlogpost => {
@@ -37,7 +31,6 @@ exports.update = function(req, res) {
     .catch(err => res.status(400).send(err));
 };
 
-/* Delete a blogpost */
 exports.delete = function(req, res) {
   Blogpost.findByIdAndRemove(req.params)
     .then(deletedBlogpost => res.json(deletedBlogpost))

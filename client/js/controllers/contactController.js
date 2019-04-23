@@ -23,7 +23,6 @@ angular.module("contacts").controller("ContactsController", [
       };
       Contacts.create(newContact)
         .then(res => {
-          //TODO: what should we do when we get a res?
           if (res.status == 200)
             console.log("contact added successfully", res.data);
           window.location = window.location;
