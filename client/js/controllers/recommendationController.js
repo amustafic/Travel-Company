@@ -59,7 +59,7 @@ angular.module('recommendations').controller('RecommendationsController', ['$sco
 
 
     $scope.showDetails = function(index) {
-      
+
       $scope.detailedInfo = $scope.recommendations[index];
     };
   }

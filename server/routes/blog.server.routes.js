@@ -1,14 +1,14 @@
-var blogpost_controller = require('../controllers/blog.server.controller.js'),
+var blogPost = require('../controllers/blog.server.controller.js'),
     express = require('express'),
     router = express.Router();
 
 router.route('/')
-    .get(blogpost_controller.getNewOrOld, blogpost_controller.list)
-    .post(blogpost_controller.create);
+    .get(blogPost.getNewOrOld, blogPost.list)
+    .post(blogPost.create);
 
 router.route('/:_id')
-    .get(blogpost_controller.read)
-    .put(blogpost_controller.update)
-    .delete(blogpost_controller.delete);
+    .get(blogPost.read)
+    .put(blogPost.update)
+    .delete(blogPost.delete);
 
 module.exports = router;

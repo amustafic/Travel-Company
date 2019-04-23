@@ -10,7 +10,7 @@ angular.module("requests", [])
       },
 
       delete: function(id) {
-        return $http.delete("http://localhost:8080/api/request/" + id);
+        return $http.delete("http://localhost:8080/api/requests/" + id);
       }
     };
 

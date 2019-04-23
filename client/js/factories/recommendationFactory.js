@@ -8,11 +8,9 @@ angular.module('recommendations', []).factory('Recommendations', function($http)
 	  return $http.post('http://localhost:8080/api/recommendations', recommendation);
     },
 
-
-
-      delete: function(id) {
-        return $http.delete('http://localhost:8080/api/recommendations/' + id, id);
-      }
+    delete: function(id) {
+      return $http.delete('http://localhost:8080/api/recommendations/' + id);
+    }
 
 
   };

@@ -26,6 +26,7 @@ angular.module("requests").controller("RequestsController", [
         numKids: newNumKids,
         comments: newComments
       };
+
       Requests.create(newRequest)
         .then(res => {
           //TODO: what should we do when we get a res?
