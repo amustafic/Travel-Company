@@ -98,14 +98,14 @@
           <h1>Welcome! {{sessionUsername}}</h1>
           <br>
           <h2>Submit your information on the contact form to start your adventure!</h2>
-          <a href="#start" class="btn">Go ahead...</a>
+          <input type="button" class = "btn"  value="Go ahead..." onclick="window.location.href='#start'" />
       </div>
     </section>
 
 
     <div class="container" >
 	  <!--Nav Bar-->
-      <a name="start"></a>
+      <a id="start"></a>
 
       <div class="header clearfix">
         <nav  ng-init="isAdmin()">
