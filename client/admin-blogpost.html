@@ -73,9 +73,7 @@
                             <td>{{blogPost.text}}</td>
                             <td>{{blogPost.pic}}</td>
                             <td>{{blogPost.createdDate | date}}</td>
-                            <td>
-                                <button>Delete</button>
-                            </td>
+                            <td> <button ng-click="deleteBlogPost(id)">Delete</button><span style="color: red;"></span></td>
                         </tr>
                     </tbody>
                 </table>
