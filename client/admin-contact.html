@@ -44,9 +44,9 @@
                 <li class="nav-item">
                         <a class="nav-link" href="admin-recomendations.html">Create Recommendation</a>
                 </li>
-          			<li class="nav-item">
+          			<!-- <li class="nav-item">
                         <a class="nav-link" href="notes.html">Notes</a>
-                </li>
+                </li> -->
           			<li class="nav-item">
                   <a class="nav-link" href="admin-blogpost.html">Blog Posts</a>
                 </li>
@@ -75,7 +75,7 @@
                 <th scope='col' class='text-center'>Email</th>
                 <th class='text-center'>Delete</th>
               </tr>
-              <tr ng-repeat="contact in contacts" ng-click="showDetails($index)">
+              <tr ng-repeat="contact in contacts" ng-click="showDetails($index)" ng-init="getAll()">
                 <td>{{contact.lastname}}</td>
                 <td>{{contact.email}}</td>
                 <td> <button ng-click="deleteListing(listing._id)">Delete</button><span style="color: red;"></span></td>
@@ -88,7 +88,9 @@
           <div class="jumbotron text-center">
             <h2>Note</h2>
             <h4>Name: {{detailedInfo.firstname}} {{detailedInfo.lastname}} </h4>
-            <p>{{detailedInfo.textnote}}</p>
+            <p>Email: {{detailedInfo.email}}</p>
+            <p>Comments</p>
+            <p>{{detailedInfo.comments}}</p>
           </div>
         </div>
 

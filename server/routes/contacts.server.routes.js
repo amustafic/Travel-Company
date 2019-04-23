@@ -1,29 +1,16 @@
-var contactController = require('../controllers/contacts.server.controller.js'),
+/* Dependencies */
+var contact = require('../controllers/contacts.server.controller.js'),
     express = require('express'),
     router = express.Router();
 
+/* Read all blogposts, Create new blogpost */
+router.route('/')
+    .get(contact.getNewOrOld, contact.list)
+    .post(contact.create);
 
-
-//router.route(':username').get(auth.getUserByUsername);
-
-
-router.route('/').post(contactController.contact);
-    // restrict index for logged in user only
-//router.get('/', auth.home);
-
-// route to register page
-//router.get('/login', auth.register);
-
-// route for register action
-//router.post('/login', auth.doRegister);
-
-// route to login page
-//router.get('/login', auth.login);
-
-// route for login action
-//router.post('/login', auth.doLogin);
-
-// route for logout action
-//router.get('/', auth.logout);
+/* Read/Update/Delete blogpost via _id */
+router.route('/:_id')
+    .get(contact.read)
+    .delete(contact.delete);
 
 module.exports = router;
