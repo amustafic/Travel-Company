@@ -2,6 +2,15 @@ angular.module("users").controller("UsersController", [
   "$scope",
   "Users",
   function($scope, Users) {
+    Users.getAll()
+      .then(res => {
+        $scope.users = res.data;
+        console.log('resdata', $scope.blogPosts);
+      })
+      .catch(err => {
+        console.log("Unable to get blogPosts:", error);
+      });
+
     /* Get all the listings, then bind it to the scope */
     $scope.addUser = function(
       newFirst,
