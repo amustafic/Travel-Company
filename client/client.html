@@ -5,10 +5,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/factories/listingFactory.js"></script>
-    <script src="js/controllers/listingController.js"></script>
+
     <script src="js/factories/userFactory.js"></script>
     <script src="js/controllers/userController.js"></script>
+    <script src="js/factories/recommendationFactory.js"></script>
+    <script src="js/controllers/recommendationController.js"></script>
 
   <link rel="stylesheet" href="styles/main.css">
   <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
@@ -44,7 +45,8 @@
       </div><!--End Nav Bar-->
 
     <section class="mb-4">
-      <div class="col-sm-9" ng-controller="ListingsController" data-ng-init="getAll()">
+      <div class="col-sm-9" ng-controller="UsersController" data-ng-init="showName()">
+        <div stringify="showName()">
 
           <table class="table table-striped table-hover">
               <h2> Recommendations </h2>
@@ -54,17 +56,22 @@
                       <th>Estimated Price</th>
                       <th>Link</th>
               </thead>
-              <tbody ng-repeat = "recommendation in recommendations">
-                  <tr>
-                      <td>{{recommendation.title}}</td>
-                      <td>{{recommendation.description}}</td>
-                      <td>{{recommendation.price}}</td>
+              <div class="nested" ng-controller="RecommendationsController" data-ng-init="getAll()">
+              <tbody >
+
+                  <tr ng-init="showDetails($index)"> <!-- ng-click="showDetails($index)" > -->
+
+                      <td>{{recommendation}}</td>
+                      <td>{{recommendation.recommend}}</td>
+                      <td>{{recommendation.info}}</td>
                       <td>{{recommendation.link}}</td>
                       <td>
                           <button>Delete</button>
                       </td>
                   </tr>
+
               </tbody>
+            </div>
           </table>
 
       </div>

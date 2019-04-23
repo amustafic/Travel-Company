@@ -108,6 +108,7 @@ angular.module("users").controller("UsersController", [
         sessionStorage.getItem("user")
       ).email;
       console.log("sessionname", $scope.sessionUsername);
+      return ("sessionname", $scope.sessionUsername);
     };
 
     $scope.isAdmin = function() {
