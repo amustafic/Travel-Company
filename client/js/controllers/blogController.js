@@ -14,10 +14,11 @@ angular.module("blogPosts").controller("BlogPostsController", [
 
     $scope.detailedInfo = undefined;
 
-    $scope.addBlogPost = function(newTitle, newText) {
+    $scope.addBlogPost = function(newTitle, newText, newPic) {
       var newBlogPost = {
         title: newTitle,
-        text: newText
+        text: newText,
+        pic: newPic
       };
       BlogPosts.create(newBlogPost)
         .then(res => {

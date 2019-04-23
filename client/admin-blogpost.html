@@ -19,7 +19,6 @@
 
 <body ng-app="directoryApp">
   <div class="header clearfix">
-    <img id="logo" src="images/Logo.jpg"/>
     <!--Nav Bar-->
       <div class="header clearfix">
         <img id="logo" src="images/Logo.jpg"/>
@@ -65,12 +64,14 @@
                     <thead>
                             <th>Post</th>
                             <th>Body</th>
+                            <th>Picture Link</th>
                             <th>Date Created</th>
                     </thead>
                     <tbody ng-repeat = "blogPost in blogPosts">
                         <tr>
                             <td>{{blogPost.title}}</td>
                             <td>{{blogPost.text}}</td>
+                            <td>{{blogPost.pic}}</td>
                             <td>{{blogPost.createdDate | date}}</td>
                             <td>
                                 <button>Delete</button>
@@ -103,8 +104,14 @@
                                             <textarea type="text" class="form-control" rows="10" ng-model="newBlogPost.text"></textarea>
                                         </div>
                                     </div>
+                                    <div class="row pt-3 pb-4">
+                                        <div class="col">
+                                            <label>Picture URL:</label>
+                                            <textarea type="text" class="form-control" ng-model="newBlogPost.pic"></textarea>
+                                        </div>
+                                    </div>
                                     <div class="">
-                                        <button type="button" class="btn btn-success" ng-click ="addBlogPost(newBlogPost.title,newBlogPost.text)">Submit</button>
+                                        <button type="button" class="btn btn-success" ng-click ="addBlogPost(newBlogPost.title,newBlogPost.text,newBlogPost.pic)">Submit</button>
                                     </div>
 
                                 </form>

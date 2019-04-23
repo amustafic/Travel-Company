@@ -29,6 +29,7 @@ exports.update = function(req, res) {
     .then(foundBlogpost => {
       foundBlogpost.title = req.body.title;
       foundBlogpost.text = req.body.text;
+      foundBlogpost.pic = req.body.pic;
       foundBlogpost.save()
         .then(updatedBlogpost => res.json(updatedBlogpost))
         .catch(err => res.status(400).send(err));
