@@ -64,22 +64,19 @@
         </ul>
       </nav>
       <img id="logo" src="images/logo1.jpg"/>
-    </div><!--End Nav Bar-->
+    </div>
+    <!--End Nav Bar-->
 
     <section class="mb-4">
-
       <!--Form-->
       <div class = "form">
         <h1> <b>Contact Form</b> </h1>
-
         <div class="row" ng-controller="ContactsController">
             <div class="col-md-12 mb-md-0 mb-5">
                 <form novalidate class="simple-form">
-
         <div class="row">
             <div class="col-md-12 mb-md-0 mb-5">
                 <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
                   <!--Names-->
                    <div class="row">
                         <div class="col-md-6">
@@ -96,7 +93,6 @@
                         </div>
                     </div>
                     <!--End Names-->
-
                     <!--Email-->
                     <div class="row">
                                 <div class="col-md-12">
@@ -106,16 +102,15 @@
                                     </div>
                                 </div>
                     </div><!--End Email-->
-
                     <!--Commnets/Concerns-->
                     <div class="row">
                                 <div class="col-md-12">
                                       <label for="Comments">Message</label>
                                       <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="newContact.comments"></textarea>
                                 </div>
-                    </div><!--End Comments/Concerns-->
+                    </div>
+                    <!--End Comments/Concerns-->
                     <br>
-
                     <!--Submit Button-->
                     <div class="text-center text-md">
                       <button class="btn btn-primary btnSubmit" ng-click="addContact(newContact.firstname, newContact.lastname, newContact.email, newContact.comments)">Send</button>
@@ -123,19 +118,19 @@
                     </div>
                     <!--End of Submit Button-->
                       <div class="status"></div>
-
               </form>
-            </div><!--End Form-->
+            </div>
+            <!--End Form-->
             </div>
             </div>
     		</section>
 
-
+        <!--Start of footer-->
         <div>
           <footer class="footer">
             <p>&copy; Bochitto Travel</p>
           </footer>
-
-        </div> <!-- /container -->
+        <!--End of Footer-->
+        </div>
   </body>
 </html>

@@ -8,22 +8,13 @@
   <script src="js/app.js"></script>
   <script src="js/factories/listingFactory.js"></script>
   <script src="js/controllers/listingController.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Clicker Script' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
   <link rel="stylesheet" href="styles/main.css">
-
-  <style>
-     .jumbotron{
-       font-family: 'Overpass';
-      }
-      .tableWrapper{
-        background-color: #C7B6DC;
-      }
-  </style>
   </head>
   <body ng-app="directoryApp">
     <div class="container">
       <div class="container">
+        <!-- Start of Nav Bar -->
         <div class="header clearfix">
           <img id="logo" src="images/Logo.jpg"/>
           <nav>
@@ -49,12 +40,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="login.html">Sign Out</a>
               </li>
-
             </ul>
           </nav>
         </div>
         <!--End Nav Bar-->
 
+      <!-- Start of Table of Notes -->
       <div class="row">
         &ensp; &nbsp;
         <h1 class="text-center"> Notes</h1>
@@ -81,14 +72,18 @@
               </tr>
             </table>
           </div>
+          <!-- End Table of Notes -->
+
+          <!-- Start of Form to add vendors -->
           <form novalidate class="simple-form">
             <h2>Add New Vendor</h2>
             <b>Vendor Name:</b> <input type="text"  class="form-control text-center form-control-lg" ng-model="newListing.firstname" /><br />
             <b>Website:</b> <input type="text" class="form-control text-center form-control-lg" ng-model="newListing.lastname" /><br />
-
             <button class="btn btn-primary btn-lg btn-block" ng-click="addListing()">Add Vendor</button>
           </form>
+          <!-- End of Form to add vendors -->
         </div>
+        <!-- Start of detailed info -->
         <div class="col-md-6">
           <div class="jumbotron text-center">
             <h2>Note</h2>
@@ -96,7 +91,7 @@
             <p>{{detailedInfo.textnote}}</p>
           </div>
         </div>
-
+        <!-- End of detailed info -->
     </div>
   </body>
 </html>

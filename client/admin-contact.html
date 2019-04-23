@@ -10,22 +10,11 @@
   <script src="js/controllers/listingController.js"></script>
   <script src="js/factories/contactFactory.js"></script>
   <script src="js/controllers/contactController.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Clicker Script' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
   <link rel="stylesheet" href="styles/main.css">
-
-  <style>
-     .jumbotron{
-       font-family: 'Overpass';
-      }
-      .tableWrapper{
-        background-color: #C7B6DC;
-      }
-  </style>
   </head>
   <body ng-app="directoryApp">
     <div class="container">
-      <!--Nav Bar-->
       <div class="container">
         <!--Nav Bar-->
           <div class="header clearfix">
@@ -56,8 +45,9 @@
 
               </ul>
             </nav>
-          </div><!--End Nav Bar-->
-
+          </div>
+          <!--End Nav Bar-->
+      <!--Start of table of contact responses-->
       <div class="row">
         &ensp; &nbsp;
         <h1 class="text-center"> Contact Forms</h1>
@@ -82,8 +72,10 @@
               </tr>
             </table>
           </div>
-
         </div>
+        <!--End of table of contact responses-->
+
+        <!--Start of details about contact response-->
         <div class="col-md-6">
           <div class="jumbotron text-center">
             <h2>Note</h2>
@@ -93,7 +85,12 @@
             <p>{{detailedInfo.comments}}</p>
           </div>
         </div>
-
+        <!--End of details about contact response-->
     </div>
+    <!--Start of Footer-->
+      <footer class="footer">
+        <p>&copy; Bochitto Travel</p>
+      </footer>
+    <!--End of Footer-->
   </body>
 </html>

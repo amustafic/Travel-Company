@@ -44,8 +44,6 @@
       [type="date"]::-webkit-calendar-picker-indicator {
         opacity: 0;
       }
-
-      /* custom styles */
       label {
         display: block;
       }
@@ -80,22 +78,18 @@
           </ul>
         </nav>
         <img id="logo" src="images/logo1.jpg"/>
-      </div><!--End Nav Bar-->
-
+      </div>
+      <!--End Nav Bar-->
     <section class="mb-4">
-
 	<!--Form-->
   <div class = "form">
     <h1> <b>Request a Trip</b> </h1>
-
     <div class="row1">
         <div class="col-md-12 mb-md-0 mb-5">
             <form novalidate class="simple-form">
-
     <div class="row" ng-controller="RequestsController">
         <div class="col-md-12 mb-md-0 mb-5">
             <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
           				<!--Email-->
           				<div class="row">
                               <div class="col-md-12">
@@ -106,7 +100,6 @@
                               </div>
                   </div>
                   <!--End Email-->
-
                   <!--Location-->
           				<div class="row">
                               <div class="col-md-6">
@@ -124,7 +117,6 @@
                               </div>
                   </div>
                   <!--End Location-->
-
                   <!--Dates-->
           				<div class="row">
                               <div class="col-md-6">
@@ -133,7 +125,6 @@
                                     <input type="date" name="ddate" id="dateofbirth" placeholder="mm/dd/yyyy" ng-model="newRequest.departureDate">
                                   </div>
                               </div>
-
                               <div class="col-md-6">
                                   <div class="md-form mb-1">
           							              <label for="return" class="">Return Date</label>
@@ -142,7 +133,6 @@
                               </div>
                   </div>
                   <!--End Dates-->
-
                   <!--Budget & People-->
           				<div class="row">
                               <div class="col-md-3">
@@ -151,14 +141,12 @@
                                       <input type="text" name="min" class="form-control" placeholder="$" ng-model="newRequest.budget">
                                   </div>
                               </div>
-
                               <div class="col-md-3">
                                   <div class="md-form mb-1">
           							              <label for="adults" class="">Number of Adults</label>
                                       <input type="text" name="adults" class="form-control" placeholder="# of Adults" ng-model="newRequest.numAdults">
                                   </div>
                               </div>
-
                               <div class="col-md-3">
                                   <div class="md-form mb-1">
           							              <label for="kid" class="">Number of Children</label>
@@ -167,7 +155,6 @@
                               </div>
                   </div>
                   <!--End Budget & People-->
-
                   <!--Commnets/Concerns-->
                   <div class="row">
                               <div class="col-md-12">
@@ -177,7 +164,6 @@
                   </div>
                   <!--End Comments/Concerns-->
                   <br>
-
                   <!--Submit Button-->
                   <div class="text-center text-md">
                     <button class="btn btn-primary btnSubmit" ng-click="addRequest()">Submit</button>
@@ -187,17 +173,15 @@
                   <div class="status"></div>
                   <br>
           </form>
-        </div><!--End Form-->
+        </div>
+        <!--End Form-->
         </div>
         </div>
 		</section>
-
-
     <div>
       <footer class="footer">
         <p>&copy; Bochitto Travel</p>
       </footer>
-
-    </div> <!-- /container -->
+    </div>
   </body>
 </html>
