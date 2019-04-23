@@ -31,8 +31,10 @@ angular.module('recommendations').controller('RecommendationsController', ['$sco
          $scope.recommendations.info = response.data.info;
          $scope.recommendations.link = response.data.link;
          console.log("creating user");
+         alert("Recommendation successfully created!");
        }, function (error) {
          console.log('Unable to create user:', error);
+         alert("Recommendation could not be created!");
        })};
 
     $scope.deleteRecommendation = function(index) {
