@@ -1,11 +1,11 @@
-angular.module('listings', []).factory('Listings', function($http) {
+angular.module('contacts', []).factory('Contacts', function($http) {
   var methods = {
     getAll: function() {
-      return $http.get('http://localhost:8080/api/listings');
+      return $http.get('http://localhost:8080/api/contacts');
     },
 
 	create: function(listing) {
-	  return $http.post('http://localhost:8080/api/listings', listing);
+	  return $http.post('http://localhost:8080/api/contacts', contact);
     },
 
     contact: function(contact) {
