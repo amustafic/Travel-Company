@@ -10,6 +10,7 @@ const path = require('path'),
     contactsRouter = require('../routes/contacts.server.routes'),
     requestsRouter = require('../routes/requests.server.routes'),
     userRouter = require('../routes/login.server.routes.js'),
+    recommendationRouter = require('../routes/recommendation.server.routes.js'),
     blogpostsRouter = require("../routes/blog.server.routes"),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
@@ -56,7 +57,7 @@ app.use(passport.session());
   app.use("/api/users", usersRouter);
   app.use("/api/blogposts", blogpostsRouter);
   app.use("/api/requests", requestsRouter);
-
+  app.use("/api/recommendations", recommendationRouter);
   app.get("/api/session", (req, res) => {
       console.log("THIS HAPPINGING");
       res.send(req.session.passport);
