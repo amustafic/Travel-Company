@@ -7,6 +7,8 @@
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
+    <script src="js/factories/contactFactory.js"></script>
+    <script src="js/controllers/contactController.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
 	<link rel="stylesheet" href="styles/style.css">
   <style>
@@ -60,7 +62,7 @@
   <div class = "form">
     <h1> <b>Contact Form</b> </h1>
 
-    <div class="row" ng-controller="ListingsController">
+    <div class="row" ng-controller="ContactsController">
         <div class="col-md-12 mb-md-0 mb-5">
             <form novalidate class="simple-form">
 
@@ -73,13 +75,13 @@
                     <div class="col-md-6">
                         <div class="md-form mb-1">
                                  <label for="firstName" class="">First Name</label>
-                                 <input type="text" name="firstName" class="form-control" placeholder="First Name" ng-model="newListing.firstname">
+                                 <input type="text" name="firstName" class="form-control" placeholder="First Name" ng-model="newContact.firstname">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="md-form mb-1">
                             <label for="lastName" class="">Last Name</label>
-                            <input type="text" name="lastName" class="form-control" placeholder="Last Name" ng-model="newListing.lastname">
+                            <input type="text" name="lastName" class="form-control" placeholder="Last Name" ng-model="newContact.lastname">
                         </div>
                     </div>
                 </div>
@@ -90,7 +92,7 @@
                             <div class="col-md-12">
                                 <div class="md-form mb-1">
                                     <label for="email" class="">Email</label>
-                                    <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="newListing.email">
+                                    <input type="text" name="email" class="form-control" placeholder="example@email.com" ng-model="newContact.email">
                                 </div>
                             </div>
                 </div><!--End Email-->
@@ -99,7 +101,7 @@
                 <div class="row">
                             <div class="col-md-12">
                                   <label for="Comments">Message</label>
-                                  <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="newListing.comments"></textarea>
+                                  <textarea class="form-control" id="Comments" rows="3" placeholder="Any Comments or Concerns" ng-model="newContact.comments"></textarea>
                             </div>
                 </div><!--End Comments/Concerns-->
                 <br>

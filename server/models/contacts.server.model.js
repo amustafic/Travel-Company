@@ -10,23 +10,8 @@ var contactSchema = new Schema({
   lastname: {
     type: String
   },
-  textnote: {
-    type: String
-  },
   email: {
     type: String
-  },
-   arrival: {
-    type: String
-  },
-  departure: {
-    type: String
-  },
-  budget: {
-    type: Number
-  },
-  phone: {
-    type: Number
   },
    comments: {
     type: String
