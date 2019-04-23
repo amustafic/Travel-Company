@@ -8,6 +8,8 @@
   <script src="js/app.js"></script>
   <script src="js/factories/listingFactory.js"></script>
   <script src="js/controllers/listingController.js"></script>
+  <script src="js/factories/contactFactory.js"></script>
+  <script src="js/controllers/contactController.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Clicker Script' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
   <link rel="stylesheet" href="styles/main.css">
@@ -60,7 +62,7 @@
         &ensp; &nbsp;
         <h1 class="text-center"> Notes</h1>
       </div>
-      <div class="row" ng-controller="ListingsController">
+      <div class="row" ng-controller="ContactsController">
         <div class="col-md-6">
           <div class="input-group" id="searchBar">
             <span class="input-group-addon glyphicon glyphicon-search float-left" id="sizing-addon1"></span>
@@ -73,8 +75,8 @@
                 <th scope='col' class='text-center'>Email</th>
                 <th class='text-center'>Delete</th>
               </tr>
-              <tr ng-repeat="contact in contacts | filter: query" ng-click="showDetails($index)">
-                <td>{{contacts.lastname}}</td>
+              <tr ng-repeat="contact in contacts" ng-click="showDetails($index)">
+                <td>{{contact.lastname}}</td>
                 <td>{{contact.email}}</td>
                 <td> <button ng-click="deleteListing(listing._id)">Delete</button><span style="color: red;"></span></td>
               </tr>

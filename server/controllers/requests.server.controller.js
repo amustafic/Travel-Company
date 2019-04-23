@@ -1,6 +1,6 @@
 /* Dependencies */
 var mongoose = require('mongoose'),
-    Contact = require('../models/requests.server.model.js');
+    Request = require('../models/requests.server.model.js');
 
 /* Create a Contact Form */
 exports.request = function(req, res) {
@@ -8,7 +8,7 @@ exports.request = function(req, res) {
   var request = new Request(req.body);
 
   /* Then save the Contact Form */
-  request.save(function(err) {
+  contact.save(function(err) {
     if(err) {
       console.log(err);
       res.status(400).send(err);

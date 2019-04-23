@@ -4,15 +4,6 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var requestSchema = new Schema({
-  firstname: {
-    type: String
-  },
-  lastname: {
-    type: String
-  },
-  textnote: {
-    type: String
-  },
   email: {
     type: String
   },

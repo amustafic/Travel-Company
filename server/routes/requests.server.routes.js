@@ -1,4 +1,4 @@
-var requestController = require('../controllers/request.server.controller.js'),
+var requestController = require('../controllers/requests.server.controller.js'),
     express = require('express'),
     router = express.Router();
 
