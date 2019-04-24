@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/factories/userFactory.js"></script>
-    <script src="js/controllers/userController.js"></script>
+
     <script src="js/factories/recommendationFactory.js"></script>
     <script src="js/controllers/recommendationController.js"></script>
   <link rel="stylesheet" href="styles/main.css">
@@ -40,30 +39,32 @@
 
     <!--Start of recommendations table-->
     <section class="mb-4">
-      <div class="col-sm-9" ng-controller="RecommendationsController">
-        <div>
+        <nav class="container-fluid col-md-9" ng-controller="RecommendationsController" data-ng-init="showClient(sessionUsername)">
           <table class="table table-striped table-hover">
               <h2> Recommendations </h2>
               <thead>
-                      <th>Title</th>
+                      <th>User</th>
                       <th>Description</th>
                       <th>Estimated Price</th>
                       <th>Link</th>
-                      <th>Delete</th>
+
               </thead>
-              <div ng-repeat="recommendation in recommendations track by $email" ng-nit="getAll()">
+             <!--ng-repeat="recommendation in Recommendations" ng-init="RecommendationsController.getAll()"> -->
               <tbody >
-                  <tr> <!-- ng-click="showDetails($index)" > -->
-                      <td>{{recommendation.user}}</td>
-                      <td>{{recommendation.recommend}}</td>
-                      <td>{{recommendation.info}}</td>
-                      <td>{{recommendation.link}}</td>
-                      <td> <button ng-click="deleteRecommendation(recommendation._id)">Delete</button><span style="color: red;"></span></td>
+                  <tr ng-repeat="clientRec in clientsRec track by $index"> <!-- ng-click="showDetails($index)" > -->
+                      <td>{{clientRec.user}}</td>
+                     <td>{{clientRec.recommend}}</td>
+                      <td>{{clientRec.info}}</td>
+                      <td>{{clientRec.link}}</td>
+
+                          <button>Delete</button>
+
                   </tr>
               </tbody>
-            </div>
+
           </table>
-      </div>
+        </nav>
+
     <!--End of recommendations table-->
 
 	  <!--Footer-->
