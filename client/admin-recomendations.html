@@ -61,7 +61,7 @@
               <th scope='col' class='text-center'>Budget</th>
               <th class='text-center'>Delete</th>
             </tr>
-            <div ng-controller="RequestsController" ng-init="getAll()">
+            <div ng-controller="RequestsController" ng-init="getAll()" ng-init="getAll()">
             <tbody>
             <tr ng-repeat="request in requests" ng-click="showDetails($index)">
               <td>{{request.email}}</td>
@@ -82,6 +82,23 @@
       </div>
       <!--End table of requests-->
 
+      <!--Start recommendation form-->
+      <div class="row">
+        <h1 class="text-center"> Create Recommendation</h1>
+      </div>
+      <div class="col-md-6">
+          <div class="row" ng-controller="RecommendationsController">
+          <form novalidate class="simple-form" method="POST">
+            <b>User:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.user" /><br />
+            <b>Title:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.recommend" /><br />
+            <b>Info: </b><br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.info" /><br />
+            <b>Link:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.link" /><br />
+            <br><button class="btn btn-primary btn-lg btn-block" ng-click="addRecommendation(newRecommendation.user, newRecommendation.recommend, newRecommendation.info, newRecommendation.link)">Add Recommendation</button>
+          </form>
+          </div>
+      </div>
+      <!--End recommendation form-->
+
       <!--Start detailed info about requests-->
       <div class="col-md-6">
         <div class="jumbotron">
@@ -94,22 +111,6 @@
       </div>
       <!--End detailed info about requests-->
 
-      <!--Start recommendation form-->
-      <div class="row">
-        <h1 class="text-center"> Create Recommendation</h1>
-      </div>
-      <div class="col-md-6">
-          <div class="row" ng-controller="RecommendationsController">
-          <form novalidate class="simple-form" method="POST">
-            <b>User:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.user" /><br />
-            <b>Title:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.recommend" /><br />
-            <b>Info: </b><br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.info" /><br />
-            <b>Link:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.link" /><br />
-            <br><button class="btn btn-primary btn-lg btn-block" ng-click="addRecommendation(newRequest.email, newRequest.return, newRequest.departurem, newRequest.returnDate, newRequest.departureDate, newRequest.budget, newRequest.numAdults, newRequest.numKids, newRequest.comments)">Add Recommendation</button>
-          </form>
-          </div>
-      </div>
-      <!--End recommendation form-->
 
     </div>
 

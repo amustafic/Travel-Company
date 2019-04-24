@@ -14,12 +14,12 @@ angular.module("recommendations").controller("RecommendationsController", [
 
     $scope.detailedInfo = undefined;
 
-    $scope.addRecommendation = function(newFirstName, newLastName, newEmail, newComment) {
+    $scope.addRecommendation = function(newUser, newRecommend, newInfo, newLink) {
       var newRecommendation = {
-        firstname: newFirstName,
-        lastname: newLastName,
-        email: newEmail,
-        comments: newComment
+        user: newUser,
+        recommend: newRecommend,
+        info: newInfo,
+        link: newLink
       };
       Recommendations.create(newRecommendation)
         .then(res => {
