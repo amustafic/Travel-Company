@@ -59,16 +59,14 @@
             <tr>
               <th scope='col' class='text-center'>Email</th>
               <th scope='col' class='text-center'>Budget</th>
-              <th class='text-center'>Show Details</th>
               <th class='text-center'>Delete</th>
             </tr>
-            <div ng-controller="RequestsController" ng-init="getAll()">
+            <div ng-controller="RequestsController" ng-click="showDetails($index)" ng-init="getAll()">
             <tbody>
-            <tr ng-repeat="(index, request) in requests | filter: request">
+            <tr ng-repeat="request in requests | filter: request">
               <td>{{request.email}}</td>
               <td>{{request.budget}}</td>
-              <td><button ng-model = "index" ng-click = "showDetails(request)">Details</button></td>
-              <td> <button ng-click="deleteUser(listing._id)">Delete</button><span style="color: red;"></span></td>
+              <td> <button ng-click="deleteUser(request._id)">Delete</button><span style="color: red;"></span></td>
             </tr>
           </tbody>
           </div>
@@ -103,12 +101,12 @@
 
       <!--Start detailed info about requests-->
       <div class="col-md-6" ng-controller="RequestsController">
-        <div class="jumbotron" ng-controller="RequestsController">
+        <div class="jumbotron">
           <h2>User Request</h2>
           <h4>{{detailedInfo.email}}</h4>
-          <p>Request: {{detailedInfo.textnote}}</p>
-          <p>Departure: {{detailedInfo.departure}}</p>
-          <p>Return: {{detailedInfo.return}}</p>
+          <p>Request: {{detailedInfo.comments}}</p>
+          <p>Departure: {{detailedInfo.departureDate}}</p>
+          <p>Return: {{detailedInfo.returnDate}}</p>
         </div>
       </div>
       <!--End detailed info about requests-->

@@ -25,15 +25,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="admin-contact.html">Contact Messages</a>
                 </li>
-                <!-- <li class="nav-item">
-                        <a class="nav-link" href="admin-requests.html">Recommendation Requests</a>
-                </li> -->
                 <li class="nav-item">
                         <a class="nav-link" href="admin-recomendations.html">Create Recommendation</a>
                 </li>
-          			<!-- <li class="nav-item">
-                        <a class="nav-link" href="notes.html">Notes</a>
-                </li> -->
           			<li class="nav-item">
                   <a class="nav-link" href="admin-blogpost.html">Blog Posts</a>
                 </li>
@@ -47,7 +41,6 @@
           <!--End Nav Bar-->
       <!--Start of table of contact responses-->
       <div class="row">
-        &ensp; &nbsp;
         <h1 class="text-center"> Contact Forms</h1>
       </div>
       <div class="row" ng-controller="ContactsController">
@@ -66,7 +59,7 @@
               <tr ng-repeat="contact in contacts | filter:contact" ng-click="showDetails($index)" ng-init="getAll()">
                 <td>{{contact.lastname}}</td>
                 <td>{{contact.email}}</td>
-                <td> <button ng-click="deleteListing(listing._id)">Delete</button><span style="color: red;"></span></td>
+                <td> <button ng-click="deleteContact(contact._id)">Delete</button><span style="color: red;"></span></td>
               </tr>
             </table>
           </div>
