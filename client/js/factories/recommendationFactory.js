@@ -11,7 +11,11 @@ angular.module('recommendations', []).factory('Recommendations', function($http,
 
     delete: function(id) {
       return $http.delete(apiHost + '/api/recommendations/' + id);
-    }
+    },
+
+    showClient: function(thisUser) {
+        return $http.get(apiHost + "/api/recommendations/" + thisUser);
+      }
 
 
   };
