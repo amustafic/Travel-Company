@@ -1,6 +1,5 @@
-angular.module('recommendations', []).factory('Recommendations', function($http) {
-  const apiHost =
-      $location.protocol() + "://" + $location.host() + ":" + $location.port();
+angular.module('recommendations', []).factory('Recommendations', function($http, $location) {
+  const apiHost = $location.protocol() + "://" + $location.host() + ":" + $location.port();
   var methods = {
     getAll: function() {
       return $http.get(apiHost + '/api/recommendations');
