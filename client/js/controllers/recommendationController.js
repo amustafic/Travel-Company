@@ -1,6 +1,5 @@
 angular.module('recommendations').controller('RecommendationsController', ['$scope', 'Recommendations',
   function($scope, Recommendations) {
-    /* Get all the listings, then bind it to the scope */
     Recommendations.getAll().then(function(response) {
       $scope.recommendations = response.data;
     }, function(error) {
@@ -22,9 +21,7 @@ angular.module('recommendations').controller('RecommendationsController', ['$sco
          link: "",
       //   id: null
        };
-    //$scope.recommendations.push($scope.newRecommendation);
-    //$scope.newRecommendation = {};
-    //$scope.recommendations.push($scope.newRecommendation);
+
      Recommendations.create($scope.newRecommendation).then(function(response) {
        $scope.recommendations.user = response.data.user;
          $scope.recommendations.recommend = response.data.recommend;
@@ -38,10 +35,6 @@ angular.module('recommendations').controller('RecommendationsController', ['$sco
        })};
 
     $scope.deleteRecommendation = function(index) {
-	   /**TODO
-        Delete the article using the Listings factory. If the removal is successful,
-		navigate back to 'listing.list'. Otherwise, display the error.
-       */
        var id = $scope.recommendations[index]._id;
        Recommendations.delete(id).then(function(res) {
          $scope.recommendations.splice(index, 1);

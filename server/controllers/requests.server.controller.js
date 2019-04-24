@@ -2,14 +2,14 @@ var Request = require("../models/requests.server.model.js");
 
 exports.list = function(req, res) {
   Request.find({})
-    .then(users => res.json(requests))
+    .then(requests => res.json(requests))
     .catch(err => res.status(400).send(err));
 };
 
 exports.create = function(req, res) {
-  var blogpost = new Request(req.body);
+  var request = new Request(req.body);
 
-  blogpost.save()
+  request.save()
     .then(newRequest => res.json(newRequest))
     .catch(err => res.status(400).send(err));
 };
