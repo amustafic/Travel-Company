@@ -59,17 +59,20 @@
             <tr>
               <th scope='col' class='text-center'>Email</th>
               <th scope='col' class='text-center'>Budget</th>
+              <th class='text-center'>Show Details</th>
               <th class='text-center'>Delete</th>
             </tr>
             <div ng-controller="RequestsController" ng-init="getAll()">
             <tbody>
-            <tr ng-repeat="request in requests">
+            <tr ng-repeat="(index, request) in requests | filter: request">
               <td>{{request.email}}</td>
               <td>{{request.budget}}</td>
+              <td><button ng-model = "index" ng-click = "showDetails(request)">Details</button></td>
               <td> <button ng-click="deleteUser(listing._id)">Delete</button><span style="color: red;"></span></td>
             </tr>
           </tbody>
           </div>
+          <br>
             <!--
 
                 Fill in the rest of the table:
@@ -83,9 +86,8 @@
       <!--End table of requests-->
 
       <!--Start recommendation form-->
-      <div class="row">
-        <h1 class="text-center"> Create Recommendation</h1>
-      </div>
+      <br>
+      <h1 class="text-center" style= "float:left"> Create Recommendation</h1>
       <div class="col-md-6">
           <div class="row" ng-controller="RecommendationsController">
           <form novalidate class="simple-form" method="POST">
@@ -100,8 +102,8 @@
       <!--End recommendation form-->
 
       <!--Start detailed info about requests-->
-      <div class="col-md-6">
-        <div class="jumbotron">
+      <div class="col-md-6" ng-controller="RequestsController">
+        <div class="jumbotron" ng-controller="RequestsController">
           <h2>User Request</h2>
           <h4>{{detailedInfo.email}}</h4>
           <p>Request: {{detailedInfo.textnote}}</p>
