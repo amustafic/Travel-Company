@@ -52,11 +52,11 @@
              <!--ng-repeat="recommendation in Recommendations" ng-init="RecommendationsController.getAll()"> -->
               <div ng-controller="RecommendationsController" ng-init="getAll()">
               <tbody >
-                  <tr ng-repeat="clientRec in clientsRec track by $index"> <!-- ng-click="showDetails($index)" > -->
-                      <td>{{clientRec.user}}</td>
-                     <td>{{clientRec.recommend}}</td>
-                      <td>{{clientRec.info}}</td>
-                      <td>{{clientRec.link}}</td>
+                  <tr ng-repeat="recommendation in recommendations"> <!-- ng-click="showDetails($index)" > -->
+                      <td>{{recommendation.user}}</td>
+                     <td>{{recommendation.recommend}}</td>
+                      <td>{{recommendation.info}}</td>
+                      <td>{{recommendation.link}}</td>
                       <td> <button ng-click="deleteRecommendation(recommendation._id)">Delete</button><span style="color: red;"></span></td>
                   </tr>
               </tbody>
