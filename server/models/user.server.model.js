@@ -19,12 +19,6 @@ var userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    validate: {
-      validator: function(v) {
-        /* unholy regex copy-pasted from stack overflow */
-        return /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(v);
-      }
-    }
   },
   password: {
     type: String,
@@ -33,15 +27,6 @@ var userSchema = new Schema({
 
   phoneNumber: {
     type: String,
-    validate: {
-      validator: function(v) {
-        //* US Phone number format, does she use any foreign vendors?*/
-        /* regex by Igor Kravtsov http://regexlib.com/REDetails.aspx?regexp_id=58 */
-        return /^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$/.test(
-          v
-        );
-      }
-    }
   },
   isAdmin: Boolean, //enables user to access admin pages and functions
   createdDate: Date,
