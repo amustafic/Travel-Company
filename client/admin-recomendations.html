@@ -77,7 +77,7 @@
             <b>Title:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.recommend" /><br />
             <b>Info: </b><br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.info" /><br />
             <b>Link:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.link" /><br />
-            <br><button class="btn btn-primary btn-lg btn-block" ng-click="addRecommendation()">Add Recommendation</button>
+            <br><button class="btn btn-primary btn-lg btn-block" ng-click="addRecommendation(newRequest.email, newRequest.return, newRequest.departurem, newRequest.returnDate, newRequest.departureDate, newRequest.budget, newRequest.numAdults, newRequest.numKids, newRequest.comments)">Add Recommendation</button>
           </form>
           </div>
       </div>
