@@ -1,23 +1,23 @@
-var user_controller = require("../controllers/user.server.controller.js"),
+var userController = require("../controllers/user.server.controller.js"),
   express = require("express"),
   passport = require("passport"),
   router = express.Router();
 
 router
   .route("/")
-  .get(user_controller.list)
-  .post(user_controller.create);
+  .get(userController.list)
+  .post(userController.create);
 
 router
   .route("/:email")
-  .get(user_controller.read)
-  .put(user_controller.update)
-  .delete(user_controller.delete);
+  .get(userController.read)
+  .put(userController.update)
+  .delete(userController.delete);
 
 router
   .route("/login")
-  .post(passport.authenticate("local"), user_controller.postAuth);
+  .post(passport.authenticate("local"), userController.postAuth);
 
-router.route("/logout").get(user_controller.logout);
+router.route("/logout").get(userController.logout);
 
 module.exports = router;
