@@ -1,24 +1,19 @@
-angular.module('recommendations', []).factory('Recommendations', function($http, $location) {
-  const apiHost = $location.protocol() + "://" + $location.host() + ":" + $location.port();
-  var methods = {
-    getAll: function() {
-      return $http.get(apiHost + '/api/recommendations');
-    },
+angular.module("recommendations", [])
+  .factory("Recommendations", function($http, $location) {
+    const host = $location.protocol() + "://" + $location.host() + ":" + $location.port();
+    var methods = {
+      getAll: function() {
+        return $http.get(host + "/api/recommendations");
+      },
 
-	create: function(recommendation) {
-	  return $http.post(apiHost + '/api/recommendations', recommendation);
-    },
+      create: function(recommendation) {
+        return $http.post(host + "/api/recommendations", recommendation);
+      },
 
-    delete: function(id) {
-      return $http.delete(apiHost + '/api/recommendations/' + id);
-    },
-
-    showClient: function(thisUser) {
-        return $http.get(apiHost + "/api/recommendations/" + thisUser);
+      delete: function(id) {
+        return $http.delete(host + "/api/recommendations/" + id);
       }
+    };
 
-
-  };
-
-  return methods;
-});
+    return methods;
+  });

@@ -1,9 +1,13 @@
-var recommendationController = require('../controllers/recommendation.server.controller.js'),
+var recommendation = require('../controllers/recommendation.server.controller.js'),
     express = require('express'),
     router = express.Router();
 
 router.route('/')
-  .get(recommendationController.list)
-  .post(recommendationController.create);
+    .get(recommendation.list)
+    .post(recommendation.create);
+
+router.route('/:_id')
+    .get(recommendation.read)
+    .delete(recommendation.delete);
 
 module.exports = router;
