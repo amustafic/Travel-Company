@@ -13,3 +13,17 @@ exports.create = function(req, res) {
     }
   });
 };
+
+exports.list = function(req, res) {
+/*
+  Recommendation.find().exec(function(err, recommendation){
+    if(err){
+      res.status(404).send(err);
+    }else {
+      res.json(recommendation)
+    }
+  })
+};
+*/
+res.json(req.recommendations);
+};

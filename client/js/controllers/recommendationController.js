@@ -1,13 +1,27 @@
 angular.module('recommendations').controller('RecommendationsController', ['$scope', 'Recommendations',
   function($scope, Recommendations) {
     /* Get all the listings, then bind it to the scope */
+    Recommendations.getAll()
+      .then(res => {
+        $scope.recommendations = res.data;
+      })
+      .catch(err => {
+        console.log("Unable to retrieve recommendations:", err);
+      });
+    /*
     Recommendations.getAll().then(function(response) {
       $scope.recommendations = response.data;
     }, function(error) {
       console.log('Unable to retrieve listings:', error);
     });
-
+*/
     $scope.detailedInfo = undefined;
+
+  //  $scope.showName = function() {
+      $scope.sessionUsername = $.parseJSON(sessionStorage.getItem("user")).email;
+    //  console.log("sessionname", $scope.sessionUsername);
+     //return ("sessionname", $scope.sessionUsername);
+    //};
 
     $scope.addRecommendation = function() {
 	  /**TODO
@@ -56,6 +70,17 @@ angular.module('recommendations').controller('RecommendationsController', ['$sco
         });
 
     };
+
+    $scope.showClient = function(thisUser) {
+         console.log("sessionname: ", thisUser);
+         Recommendations.showClient(thisUser)
+           .then(res => {
+             $scope.clientsRec = res.data;
+           })
+           .catch(err => {
+             console.log("Unable to retrieve recommendations for client: ", err);
+           });
+       };
 
 
     $scope.showDetails = function(index) {
