@@ -11,7 +11,6 @@
   <script src="js/controllers/userController.js"></script>
   <script src="js/factories/blogFactory.js"></script>
   <script src="js/controllers/blogController.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Clicker Script' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
   <link rel="stylesheet" href="styles/main.css">
   <style>
@@ -22,11 +21,11 @@
   </style>
 </head>
 
-
 <body ng-app="directoryApp">
   <div class="container">
     <!--Nav Bar-->
       <div class="header clearfix">
+        <!--Logo-->
         <img id="logo" src="images/Logo.jpg"/>
         <nav>
           <ul class="nav nav-pills float-right">
@@ -53,9 +52,11 @@
             </li>
           </ul>
         </nav>
-      </div><!--End Nav Bar-->
-</div>
+      </div>
+      <!--End Nav Bar-->
+    </div>
     <div class="container my-5" id="profile">
+        <!--Start of table of blog posts-->
         <h1 class="titleFont">Blog Posts</h1>
         <div style="overflow-x:auto;">
         <div class="row">
@@ -80,9 +81,8 @@
             </div>
           </div>
         </div>
-
-
-            <!-- Post Blog -->
+        <!--End of table of blog posts-->
+            <!-- Start of Post Blog -->
             <div class="container-fluid py-5" id="Blog" ng-controller="BlogPostsController">
                 <div class="row">
                     <div class="col-sm">
@@ -113,17 +113,20 @@
                                     <div class="">
                                         <button type="button" class="btn btn-success" ng-click ="addBlogPost(newBlogPost.title,newBlogPost.text,newBlogPost.pic)">Submit</button>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--Start of Footer-->
+                  <footer class="footer">
+                    <p>&copy; Bochitto Travel</p>
+                  </footer>
+                <!--End of Footer-->
             </div>
-
+            <!-- End of Post Blog -->
         </div>
     </div>
 
 </body>
-
 </html>
