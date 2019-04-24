@@ -1,29 +1,31 @@
 angular.module("users", []).factory("Users", function($http, $location) {
+  const apiHost =
+      $location.protocol() + "://" + $location.host() + ":" + $location.port();
   var methods = {
     getAll: function() {
-      return $http.get("http://localhost:8080/api/users");
+      return $http.get(apiHost + "/api/users");
     },
 
     create: function(newUser) {
-      return $http.post("http://localhost:8080/api/users", newUser);
+      return $http.post(apiHost + "/api/users", newUser);
     },
 
     delete: function(id) {
-      return $http.delete("http://localhost:8080/api/users/" + id);
+      return $http.delete(apiHost + "/api/users/" + id);
     },
     authenticate: function(username, password) {
       var login = {
         email: username,
         password: password
       };
-      return $http.post("http://localhost:8080/api/users/login", login, httpOptions);
+      return $http.post(apiHost + "/api/users/login", login);
     },
 
     logout: function() {
-      return $http.get("http://localhost:8080/api/users/logout");
+      return $http.get(apiHost + "/api/users/logout");
     },
     getSession: function() {
-      return $http.get("http://localhost:8080/api/session");
+      return $http.get(apiHost + "/api/session");
     }
   };
 

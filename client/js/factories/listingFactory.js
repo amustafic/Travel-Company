@@ -1,5 +1,7 @@
 /*For Testing*/
 angular.module('contacts', []).factory('Contacts', function($http) {
+  const apiHost =
+      $location.protocol() + "://" + $location.host() + ":" + $location.port();
   var methods = {
     getAll: function() {
       return $http.get('http://localhost:8080/api/contacts');

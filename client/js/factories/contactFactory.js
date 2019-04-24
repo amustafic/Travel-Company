@@ -1,16 +1,18 @@
 angular.module("contacts", [])
   .factory("Contacts", function($http, $location) {
+    const apiHost =
+        $location.protocol() + "://" + $location.host() + ":" + $location.port();
     var methods = {
       getAll: function() {
-        return $http.get("http://localhost:8080/api/contacts");
+        return $http.get(apiHost + "/api/contacts");
       },
 
       create: function(contact) {
-        return $http.post("http://localhost:8080/api/contacts", contact);
+        return $http.post(apiHost + "/api/contacts", contact);
       },
 
       delete: function(id) {
-        return $http.delete("http://localhost:8080/api/contacts/" + id);
+        return $http.delete(apiHost + "/api/contacts/" + id);
       }
     };
 
