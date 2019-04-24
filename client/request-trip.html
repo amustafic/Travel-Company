@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/factories/listingFactory.js"></script>
-    <script src="js/controllers/listingController.js"></script>
     <script src="js/factories/requestFactory.js"></script>
     <script src="js/controllers/requestController.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
@@ -166,7 +164,7 @@
                   <br>
                   <!--Submit Button-->
                   <div class="text-center text-md">
-                    <button class="btn btn-primary btnSubmit" ng-click="addRequest()">Submit</button>
+                    <button class="btn btn-primary btnSubmit" ng-click="addRequest(newRequest.email, newRequest.return, newRequest.departure, newRequest.returnDate, newRequest.departureDate, newRequest.budget, newRequest.numAdults, newRequest.numKids, newRequest.comments)">Submit</button>
                   </div>
                   </div>
                   <!--End of Submit Button-->

@@ -3,7 +3,7 @@ var contact = require('../controllers/contacts.server.controller.js'),
     router = express.Router();
 
 router.route('/')
-    .get(contact.getNewOrOld, contact.list)
+    .get(contact.list)
     .post(contact.create);
 
 router.route('/:_id')

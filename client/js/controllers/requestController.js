@@ -29,7 +29,6 @@ angular.module("requests").controller("RequestsController", [
 
       Requests.create(newRequest)
         .then(res => {
-          //TODO: what should we do when we get a res?
           if (res.status == 200)
             console.log("request added successfully", res.data);
           window.location = window.location;

@@ -5,8 +5,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
   <script src="js/app.js"></script>
-  <script src="js/factories/listingFactory.js"></script>
-  <script src="js/controllers/listingController.js"></script>
   <script src="js/factories/userFactory.js"></script>
   <script src="js/controllers/userController.js"></script>
   <script src="js/factories/blogFactory.js"></script>
@@ -35,15 +33,9 @@
             <li class="nav-item">
               <a class="nav-link" href="admin-contact.html">Contact Messages</a>
             </li>
-            <!-- <li class="nav-item">
-                    <a class="nav-link" href="admin-requests.html">Recommendation Requests</a>
-            </li> -->
             <li class="nav-item">
                     <a class="nav-link" href="admin-recomendations.html">Create Recommendation</a>
             </li>
-            <!-- <li class="nav-item">
-                    <a class="nav-link" href="notes.html">Notes</a>
-            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="admin-blogpost.html">Blog Posts</a>
             </li>
@@ -74,7 +66,7 @@
                             <td>{{blogPost.text}}</td>
                             <td>{{blogPost.pic}}</td>
                             <td>{{blogPost.createdDate | date}}</td>
-                            <td> <button ng-click="deleteBlogPost(id)">Delete</button><span style="color: red;"></span></td>
+                            <td> <button ng-click="deleteBlogPost(blogPost._id)">Delete</button><span style="color: red;"></span></td>
                         </tr>
                     </tbody>
                 </table>
