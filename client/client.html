@@ -58,9 +58,7 @@
                       <td>{{recommendation.recommend}}</td>
                       <td>{{recommendation.info}}</td>
                       <td>{{recommendation.link}}</td>
-                      <td>
-                          <button>Delete</button>
-                      </td>
+                      <td> <button ng-click="deleteRecommendation(recommendation._id)">Delete</button><span style="color: red;"></span></td>
                   </tr>
               </tbody>
             </div>
