@@ -1,29 +1,27 @@
-var mongoose = require('mongoose'),
-    Recommendation = require('../models/recommendation.server.model.js');
+var Recommendation = require("../models/recommendation.server.model.js");
+
+exports.list = function(req, res) {
+  Recommendation.find({})
+    .then(recommendations => res.json(recommendations))
+    .catch(err => res.status(400).send(err));
+};
 
 exports.create = function(req, res) {
   var recommendation = new Recommendation(req.body);
 
-  recommendation.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.json(recommendation);
-    }
-  });
+  recommendation.save()
+    .then(newRecommendation => res.json(newRecommendation))
+    .catch(err => res.status(400).send(err));
 };
 
-exports.list = function(req, res) {
-/*
-  Recommendation.find().exec(function(err, recommendation){
-    if(err){
-      res.status(404).send(err);
-    }else {
-      res.json(recommendation)
-    }
-  })
+exports.read = function(req, res) {
+  Recommendation.findById(req.params)
+    .then(foundRecommendation => res.json(foundRecommendation))
+    .catch(err => res.status(400).send(err));
 };
-*/
-res.json(req.recommendations);
+
+exports.delete = function(req, res) {
+  Recommendation.findByIdAndRemove(req.params)
+    .then(deletedRecommendation => res.json(deletedRecommendation))
+    .catch(err => res.status(400).send(err));
 };
