@@ -59,6 +59,13 @@
             <tr>
               <th scope='col' class='text-center'>Email</th>
               <th scope='col' class='text-center'>Budget</th>
+              <th scope='col' class='text-center'>Departure</th>
+              <th scope='col' class='text-center'>Return</th>
+              <th scope='col' class='text-center'>Departure Date</th>
+              <th scope='col' class='text-center'>Return Date</th>
+              <th scope='col' class='text-center'>Number of Adults</th>
+              <th scope='col' class='text-center'>Number of Kids</th>
+              <th scope='col' class='text-center'>Comments</th>
               <th class='text-center'>Delete</th>
             </tr>
             <div ng-controller="RequestsController" ng-click="showDetails($index)" ng-init="getAll()">
@@ -66,40 +73,29 @@
             <tr ng-repeat="request in requests | filter: request">
               <td>{{request.email}}</td>
               <td>{{request.budget}}</td>
+              <td>{{request.departure}}</td>
+              <td>{{request.return}}</td>
+              <td>{{request.departureDate}}</td>
+              <td>{{request.returnDate}}</td>
+              <td>{{request.numAdults}}</td>
+              <td>{{request.numKids}}</td>
+              <td>{{request.comments}}</td>
               <td> <button ng-click="deleteUser(request._id)">Delete</button><span style="color: red;"></span></td>
             </tr>
           </tbody>
           </div>
           <br>
-            <!--
-
-                Fill in the rest of the table:
-                    * populate the rows with the code and name of each listing
-                    * include a way to remove individual listings
-
-              -->
           </table>
         </div>
       </div>
       <!--End table of requests-->
 
-      <!--Start detailed info about requests-->
-      <div class="col-md-6">
-        <div class="jumbotron">
-          <h2>User Request</h2>
-          <h4>{{detailedInfo.email}}</h4>
-          <p>Request: {{detailedInfo.return}}</p>
-          <p>Departure: {{detailedInfo.departure}}</p>
-          <p>Return: {{detailedInfo.budget}}</p>
-        </div>
-      </div>
-      <!--End detailed info about requests-->
 
       <!--Start recommendation form-->
       <br>
-      <h1 class="text-center" style= "float:left"> Create Recommendation</h1>
       <div class="col-md-6">
           <div class="row" ng-controller="RecommendationsController">
+            <h1 class="text-center" style= "float:left"> Create Recommendation</h1>
           <form novalidate class="simple-form" method="POST">
             <b>User:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.user" /><br />
             <b>Title:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.recommend" /><br />
@@ -111,20 +107,8 @@
       </div>
       <!--End recommendation form-->
 
-<<<<<<< HEAD
-      <!--Start detailed info about requests-->
-      <div class="col-md-6" ng-controller="RequestsController">
-        <div class="jumbotron">
-          <h2>User Request</h2>
-          <h4>{{detailedInfo.email}}</h4>
-          <p>Request: {{detailedInfo.comments}}</p>
-          <p>Departure: {{detailedInfo.departureDate}}</p>
-          <p>Return: {{detailedInfo.returnDate}}</p>
-        </div>
-      </div>
-      <!--End detailed info about requests-->
-=======
->>>>>>> 52837052a1f85b23ed6011f19c078881ab4d8de5
+
+
     </div>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->

@@ -14,6 +14,14 @@ angular.module("recommendations").controller("RecommendationsController", [
 
     $scope.detailedInfo = undefined;
 
+    $scope.showName = function() {
+      $scope.sessionUsername = $.parseJSON(
+        sessionStorage.getItem("user")
+      ).email;
+      console.log("sessionname", $scope.sessionUsername);
+      return ("sessionname", $scope.sessionUsername);
+    };
+
     $scope.addRecommendation = function(newFirstName, newLastName, newEmail, newComment) {
       var newRecommendation = {
         firstname: newFirstName,
