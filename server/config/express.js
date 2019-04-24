@@ -6,7 +6,6 @@ const path = require('path'),
     bodyParser = require('body-parser'),
     config = require('./config'),
     session = require("express-session"),
-    listingsRouter = require('../routes/listings.server.routes'),
     contactsRouter = require('../routes/contacts.server.routes'),
     requestsRouter = require('../routes/requests.server.routes'),
     recommendationRouter = require('../routes/recommendation.server.routes.js'),
@@ -43,7 +42,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
   /*  Use the routers for requests to any API */
-  app.use('/api/listings', listingsRouter);
   app.use('/api/contacts', contactsRouter);
   app.use("/api/users", usersRouter);
   app.use("/api/blogposts", blogpostsRouter);
