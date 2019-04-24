@@ -66,7 +66,7 @@
             <tr ng-repeat="request in requests">
               <td>{{request.email}}</td>
               <td>{{request.budget}}</td>
-              <td> <button ng-click="deleteUser(listing._id)">Delete</button><span style="color: red;"></span></td>
+              <td> <button ng-click="deleteRequest(request._id)">Delete</button><span style="color: red;"></span></td>
             </tr>
           </tbody>
           </div>
