@@ -93,11 +93,9 @@
       <!--End table of requests-->
 
       <!--Start recommendation form-->
-      <div class="row">
-        <h1 class="text-center"> Create Recommendation</h1>
-      </div>
       <div class="col-md-6">
           <div class="row" ng-controller="RecommendationsController">
+            <h1 class="text-center"> Create Recommendation</h1>
           <form novalidate class="simple-form" method="POST">
             <b>User:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.user" /><br />
             <b>Title:</b> <br><input type="text"  class="form-control text-center form-control-lg" ng-model="newRecommendation.recommend" /><br />
@@ -109,17 +107,6 @@
       </div>
       <!--End recommendation form-->
 
-      <!--Start detailed info about requests-->
-      <div class="col-md-6">
-        <div class="jumbotron">
-          <h2>User Request</h2>
-          <h4>{{detailedInfo.email}}</h4>
-          <p>Request: {{detailedInfo.return}}</p>
-          <p>Departure: {{detailedInfo.departure}}</p>
-          <p>Return: {{detailedInfo.budget}}</p>
-        </div>
-      </div>
-      <!--End detailed info about requests-->
 
 
     </div>
